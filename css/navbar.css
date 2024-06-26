@@ -18,6 +18,12 @@
 	font-size: 16px;
 }
 
+.navbar .dropdown-item:hover{
+	background-color: #8A9FB9;
+	color: white;
+}
+
+
 
 
 
