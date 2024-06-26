@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>2.4.3 Monitores</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS-->
+    <!-- Local CSS-->
+    <link href="../css/header.css" rel="stylesheet" />
+    <link href="../css/navbar.css" rel="stylesheet" />
+    <link href="../css/card.css" rel="stylesheet" />
+    <link href="../css/offcanvas.css" rel="stylesheet" />
+    <link href="../css/pagination.css" rel="stylesheet" />
+    <link href="../css/footer.css" rel="stylesheet" />
+
+
+    <!-- Local CSS-->
+    <!-- Local JS-->
+    <script src="../js/headerPagesLoader.js"></script>
+    <script src="../js/navbarContentLoader.js"></script>
+    <script src="../js/offcanvasLoader.js"></script>
+    <script src="../js/footerPagesLoader.js"></script>
+    <!-- Local JS-->
+</head>
+
+<body>
+
+    <div id="offcanvas-container">
+
+    </div>
+
+
+    <!-- Header -->
+    <div id="header-container"></div>
+    <!-- Header -->
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    <!-- Navbar -->
+    <!-- Page content -->
+
+    <main>
+        <section>
+            <div class="card">
+                <h5 class="card-header">2.4.3 Monitores</h5>
+                <div class="card-body">
+
+                    <p class="card-text">
+                        En el ámbito de la programación concurrente, la sincronización y la gestión de recursos compartidos son dos desafíos
+                        fundamentales. Los monitores, propuestos por E.W. Dijkstra en 1968, se erige como una abstracción poderosa y
+                        versátil para abordar estos desafíos de manera efectiva.
+                    </p>
+
+                    <br>
+                    
+                    <p class="card-text">
+                        Los monitores se caracterizan por encapsular variables y procedimientos en una estructura única, proporcionando una
+                        interfaz cohesiva para la manipulación de recursos compartidos. Su funcionalidad central radica en dos pilares: la
+                        exclusión mutua automática y la gestión de variables condición.
+                    </p>
+
+                    <br>
+                    
+                    <p class="card-text">
+                        La exclusión mutua es un aspecto crítico que abordan los monitores. Garantizan que solo un hilo o proceso pueda
+                        ejecutar un procedimiento monitor a la vez, eliminando así las condiciones de carrera y promoviendo un acceso seguro
+                        a recursos compartidos. Esta característica simplifica el diseño y la implementación de la exclusión mutua,
+                        reduciendo la propensión a errores asociados con la concurrencia.
+                    </p>
+
+                    <br>
+                    
+                    <p class="card-text">
+                        Otra función distintiva de los monitores es la gestión de variables condición. Estas variables son fundamentales
+                        para la comunicación y sincronización entre hilos o procesos, facilitando la coordinación eficiente en entornos
+                        concurrentes. Las variables condición permiten la espera y la señalización, contribuyendo a una ejecución más
+                        coordinada y eficiente.
+                    </p>
+
+                    <br>
+                    
+                    <p class="card-text">
+                        La importancia de los monitores se refleja en diversos aspectos clave. En primer lugar, facilitan la sincronización
+                        de manera efectiva, simplificando la implementación y reduciendo la complejidad asociada a la concurrencia. Esta
+                        capacidad mejora la legibilidad del código concurrente y facilita su mantenimiento, factores cruciales en el
+                        desarrollo de software robusto.
+                    </p>
+
+                    <br>
+                    
+                    <p class="card-text">
+                        Además, los monitores desempeñan un papel crucial en la reducción de errores comunes asociados con la concurrencia.
+                        La encapsulación de la sincronización y la exclusión mutua dentro de los monitores ayuda a prevenir problemas como
+                        condiciones de carrera y deadlocks, contribuyendo a la fiabilidad y seguridad del software.
+                    </p>
+
+                    <br>
+                    
+                    <p class="card-text">
+                        La aparición de los monitores responde a la necesidad imperante de proporcionar una abstracción más estructurada y
+                        segura para la programación concurrente. En un contexto donde la complejidad y propensión a errores de los enfoques
+                        tradicionales, como el uso de semáforos y mutex, se volvían evidentes, los monitores emergieron como una solución
+                        más poderosa y fácil de usar.
+                    </p>
+
+                    <p class="text-center">
+                        <a href="https://www.freepik.com/icon/programming_4143606#fromView=image_search&page=1&position=0&uuid=536d3e56-1413-4bfd-8c23-fa81aed99824" target="blank"><img src="../images/figura_20.png" alt="Error al cargar imagen figura_20.png"
+                                style="width: 15%;"></a>
+                    </p>
+                    
+                    <p class="text-center">
+                        <b>Figura 20. Programación de un monitor para los procesos.</b>
+                    </p>
+
+                    <p class="card-text">
+                        Reflexiona la siguiente
+                        pregunta que será
+                        tratada en la sesión de clase.
+                    </p>
+                    
+                    <p class="card-text">
+                        ¿Cómo influyen los monitores en la simplificación del diseño y la implementación de la sincronización en entornos
+                        concurrentes, y cómo contribuyen a reducir la propensión a errores asociados con la concurrencia?
+                    </p>
+                      
+                    
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item">
+                            <a class="page-link" href="2-3-comunicacion-entre-procesos.html">Anterior</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="2-4-sincronizacion-entre-procesos-hilos.html">1</a></li>
+                        <li class="page-item"><a class="page-link" href="2-4-1-principios-de-la-sincronizacion.html">2</a></li>
+                        <li class="page-item"><a class="page-link" href="2-4-2-semaforos-y-mutex.html">3</a></li>
+                        <li class="page-item active"><a class="page-link" href="2-4-3-monitores.html">4</a></li>
+                        <li class="page-item"><a class="page-link" href="actividad-4.html">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="2-5-planificacion.html">Siguiente Tema</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Page content -->
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    <!-- Footer -->
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <!-- Core theme JS-->
+</body>
+
+</html>
