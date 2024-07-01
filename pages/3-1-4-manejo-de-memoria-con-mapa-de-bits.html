@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -10,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- Bootstrap CSS-->
     <!-- Local CSS-->
@@ -52,8 +53,35 @@
                 <h5 class="card-header">3.1.4 Manejo de memoria con mapa de bits</h5>
                 <div class="card-body">
                     <p class="card-text">
-                        EN CONSTRUCCIÓN
+                        Los sistemas operativos utilizan el manejo de memoria con mapas de bits para recordar qué
+                        bloques de memoria están asignados y cuáles están libres. El uso de un mapa de bits, una
+                        estructura de datos que representa cada bloque de memoria como un bit en una secuencia binaria,
+                        es esencial.
                     </p>
+                    <p class="card-text">El mapa de bits muestra el estado de un bloque de memoria por cada bit. El bit
+                        0 puede indicar que el bloque de memoria está libre, mientras que el bit 1 puede indicar que el
+                        bloque está asignado. El sistema operativo busca los bloques libres en el mapa de bits cuando se
+                        solicita memoria y marca los bloques correspondientes como asignados. Los bits se marcan
+                        nuevamente como libres cuando se libera memoria.
+                    </p>
+                    <p class="card-text">Ventajas:</p>
+                    <ol class="card-text" type="a">
+                        <li>Utiliza solo un bit por bloque de memoria, lo que lo hace eficiente en términos de espacio.
+                        </li>
+                        <li>Permite la búsqueda de bloques de memoria libres rápidamente.
+                        </li>
+                        <li>Es sencillo de implementar y comprender.
+                        </li>
+                    </ol>
+                    <p class="card-text">Desventajas:</p>
+                    <ol class="card-text">
+                        <li>Puede resultar en fragmentación de la memoria, en la que los bloques de memoria libres se
+                            dispersan y no se pueden usar de manera efectiva.
+                        </li>
+                        <li>El mapa de bits puede volverse muy grande, por lo que no es adecuado para sistemas con
+                            grandes cantidades de memoria.
+                        </li>
+                    </ol>
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
                             <a class="page-link" href="../index.html">Anterior</a>
@@ -90,8 +118,8 @@
     <!-- Footer -->
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
     <!-- Core theme JS-->
 </body>
 
