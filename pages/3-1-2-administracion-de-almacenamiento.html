@@ -18,6 +18,7 @@
     <link href="../css/header.css" rel="stylesheet" />
     <link href="../css/navbar.css" rel="stylesheet" />
     <link href="../css/card.css" rel="stylesheet" />
+    <link href="../css/acordeon.css" rel="stylesheet" />
     <link href="../css/offcanvas.css" rel="stylesheet" />
     <link href="../css/pagination.css" rel="stylesheet" />
     <link href="../css/footer.css" rel="stylesheet" />
@@ -54,20 +55,113 @@
                 <div class="card-body">
 
                     <p class="card-text">
-                        EN CONSTRUCCIÓN
+
+                        La administración de almacenamiento en sistemas operativos es fundamental para gestionar
+                        eficientemente los recursos de almacenamiento disponibles en un sistema informático. Aquí hay
+                        algunos aspectos clave sobre cómo se lleva a cabo esta administración:
+
                     </p>
-                
+
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                    a) Administración de Espacio
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        Se encarga de asignar y liberar espacio en el almacenamiento para los
+                                        archivos y datos del sistema y de los usuarios. Esto incluye técnicas como el
+                                        particionamiento
+                                        del disco, la gestión de archivos y la administración del espacio libre.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseTwo">
+                                    b) Sistemas de Archivos
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        Define la estructura y el método para almacenar y organizar archivos en
+                                        dispositivos de almacenamiento. Los sistemas de archivos pueden variar en
+                                        complejidad y
+                                        características, desde simples sistemas como FAT hasta sistemas avanzados como
+                                        NTFS en Windows o
+                                        ext4 en sistemas Linux.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseThree">
+                                    c) Gestión de Cuotas
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        Permite establecer límites en el espacio de almacenamiento que los usuarios o
+                                        grupos de usuarios pueden utilizar. Esto ayuda a prevenir el uso excesivo de
+                                        recursos y
+                                        garantiza una distribución equitativa del almacenamiento entre los usuarios.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card-text">
+                        Estos aspectos son importantes para mantener la integridad de la información almacenada en una
+                        computadora.
+                    </p>
+
+                    <p class="card-text">
+                        Revisar los siguientes aspectos complementarios sobre la administración de almacenamiento, los
+                        cuales serán discutidos en clase.
+                    </p>
+
+                    <ul class="card-text">
+                        <li><b>Control de Acceso.</b></li>
+                        <li><b>Recuperación y Respaldo.</b></li>
+                        <li><b>Optimización de Rendimiento.</b></li>
+                        <li><b>Seguridad y Integridad de los Datos.</b></li>
+                    </ul>
+
+                    <br>
+
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
                             <a class="page-link" href="../index.html">Anterior</a>
                         </li>
                         <li class="page-item"><a class="page-link" href="introduccion.html">1</a></li>
                         <li class="page-item"><a class="page-link" href="3-1-abstraccion-de-memoria.html">2</a></li>
-                        <li class="page-item"><a class="page-link" href="3-1-1-organizacion-de-la-memoria.html">3</a></li>
-                        <li class="page-item active"><a class="page-link" href="3-1-2-administracion-de-almacenamiento.html">4</a></li>
+                        <li class="page-item"><a class="page-link" href="3-1-1-organizacion-de-la-memoria.html">3</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link"
+                                href="3-1-2-administracion-de-almacenamiento.html">4</a></li>
                         <li class="page-item"><a class="page-link" href="3-1-3-memoria-de-intercambio.html">5</a></li>
-                        <li class="page-item"><a class="page-link" href="3-1-4-manejo-de-memoria-con-mapa-de-bits.html">6</a></li>
-                        <li class="page-item"><a class="page-link" href="3-1-5-manejo-de-memoria-con-listas-ligadas.html">7</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="3-1-4-manejo-de-memoria-con-mapa-de-bits.html">6</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="3-1-5-manejo-de-memoria-con-listas-ligadas.html">7</a></li>
                         <!-- <li class="page-item"><a class="page-link" href="actividad-1.html">8</a></li>
                         <li class="page-item">
                             <a class="page-link" href="2-2-modelo-multi-hilo.html">Siguiente Tema</a>
