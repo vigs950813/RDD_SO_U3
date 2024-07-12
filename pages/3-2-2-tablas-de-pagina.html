@@ -56,43 +56,61 @@
 
                 <div class="card-body">
 
-                    <p><span style="font-size:12pt;">Para poder traducir las direcciones de memoria virtual de un proceso a direcciones f&iacute;sicas, es necesario contar con una estructura de datos que contenga esa relaci&oacute;n. A esto se le conoce como tablas de p&aacute;ginas.</span></p>
-                    <p><span style="font-size:12pt;">Permiten al sistema operativo gestionar la memoria de manera eficiente, rastreando qu&eacute; p&aacute;ginas est&aacute;n en la memoria f&iacute;sica y cu&aacute;les est&aacute;n en el disco.</span></p>
-                    <p><span style="font-size:12pt;">Est&aacute;n compuestas de los &iacute;ndices de p&aacute;gina y el desplazamiento (la parte baja de la direcci&oacute;n virtual indica el desplazamiento dentro de la p&aacute;gina).</span></p>
-                    <p><span style="font-size:12pt;">Ejemplo de Traducci&oacute;n de Direcci&oacute;n usando una Tabla de P&aacute;ginas Simple</span></p>
-                    <p><span style="font-size:12pt;">Imagina un sistema con las siguientes caracter&iacute;sticas:</span></p>
+                    <p class="card-text">Para poder traducir las direcciones de memoria virtual de un proceso a
+                        direcciones físicas, es necesario contar con una estructura de datos que contenga esa relación.
+                        A esto se le conoce como tablas de páginas.</p>
+                    <p class="card-text">Permiten al sistema operativo gestionar la memoria de manera eficiente,
+                        rastreando qué páginas están en la memoria física y cuáles están en el disco.</p>
+                    <p class="card-text">Están compuestas de los índices de página y el desplazamiento (la parte baja de
+                        la dirección virtual indica el desplazamiento dentro de la página).</p>
+                    <p class="card-text"><b>Ejemplo de Traducción de Dirección usando una Tabla de Páginas Simple</b>
+                    </p>
+                    <p class="card-text">Imagina un sistema con las siguientes características:</p>
+
                     <ul>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><span style="font-size:12pt;">Tama&ntilde;o de p&aacute;gina: 4 KB</span></p>
+                        <li>
+                            <p class="card-text">Tamaño de página: 4 KB</p>
                         </li>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><span style="font-size:12pt;">Tama&ntilde;o de la direcci&oacute;n virtual: 32 bits (4 GB de espacio de direcciones virtuales)</span></p>
+                        <li>
+                            <p class="card-text">Tamaño de la dirección virtual: 32 bits (4 GB de espacio de direcciones
+                                virtuales)</p>
                         </li>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><span style="font-size:12pt;">Tama&ntilde;o de la direcci&oacute;n f&iacute;sica: 20 bits (1 MB de espacio de direcciones f&iacute;sicas)</span></p>
+                        <li>
+                            <p class="card-text">Tamaño de la dirección física: 20 bits (1 MB de espacio de direcciones
+                                físicas)</p>
                         </li>
                     </ul>
-                    <p><span style="font-size:12pt;">Paso a Paso</span></p>
+                    <p class="card-text">
+                        <b>Paso a Paso</b>
+                    </p>
                     <ol>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:11pt;">Direcci&oacute;n Virtual</span></strong><span style="font-size:12pt;">: 0x12345ABC</span></p>
+                        <li>
+                            <p class="card-text"><b>Dirección Virtual</b>: 0x12345ABC</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">&Iacute;ndice de P&aacute;gina</span></strong><span style="font-size:12pt;">: Los bits m&aacute;s significativos de la direcci&oacute;n virtual se utilizan como &iacute;ndice. Supongamos que los primeros 20 bits (0x12345) son el &iacute;ndice de p&aacute;gina.</span></p>
+                        <li>
+                            <p class="card-text"><b>Índice de Página</b>: Los bits más significativos de la dirección
+                                virtual se utilizan como índice. Supongamos que los primeros 20 bits (0x12345) son el
+                                índice de página.</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Desplazamiento dentro de la P&aacute;gina</span></strong><span style="font-size:12pt;">: Los 12 bits menos significativos (0xABC) son el desplazamiento dentro de la p&aacute;gina.</span></p>
+                        <li>
+                            <p class="card-text"><b>Desplazamiento dentro de la Página</b>: Los 12 bits menos
+                                significativos (0xABC) son el desplazamiento dentro de la página.</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Consulta a la Tabla de P&aacute;ginas</span></strong><span style="font-size:12pt;">: Usamos el &iacute;ndice de p&aacute;gina (0x12345) para buscar en la tabla de p&aacute;ginas.</span></p>
+                        <li>
+                            <p class="card-text"><b>Consulta a la Tabla de Páginas</b>: Usamos el índice de página
+                                (0x12345) para buscar en la tabla de páginas.</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Entrada en la Tabla de P&aacute;ginas</span></strong><span style="font-size:12pt;">: La entrada correspondiente nos da la direcci&oacute;n del marco de p&aacute;gina f&iacute;sico. Supongamos que la entrada es 0x1F.</span></p>
+                        <li>
+                            <p class="card-text"><b>Entrada en la Tabla de Páginas</b>: La entrada correspondiente nos
+                                da la dirección del marco de página físico. Supongamos que la entrada es 0x1F.</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Direcci&oacute;n F&iacute;sica</span></strong><span style="font-size:12pt;">: La direcci&oacute;n f&iacute;sica completa se forma concatenando el marco de p&aacute;gina (0x1F) con el desplazamiento dentro de la p&aacute;gina (0xABC), dando 0x1FABC.</span></p>
+                        <li>
+                            <p class="card-text"><b>Dirección Física</b>: La dirección física completa se forma
+                                concatenando el marco de página (0x1F) con el desplazamiento dentro de la página
+                                (0xABC), dando 0x1FABC.</p>
                         </li>
                     </ol>
+
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
@@ -101,17 +119,18 @@
                         <li class="page-item"><a class="page-link" href="3-2-memoria-virtual.html">1</a></li>
                         <li class="page-item"><a class="page-link" href="3-2-1-paginacion.html">2</a></li>
                         <li class="page-item active"><a class="page-link" href="3-2-2-tablas-de-pagina.html">3</a></li>
-                        <li class="page-item"><a class="page-link" href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
                         <li class="page-item">
                             <a class="page-link" href="3-3-segmentacion.html">Siguiente Tema</a>
                         </li>
                     </ul>
 
                 </div>
-                
+
             </div>
 
-           
+
 
         </section>
         <!-- Section 1 -->
