@@ -57,27 +57,127 @@
                 <div class="card-body">
 
                     <p class="card-text">
-                        En construcción
+                        La segmentación pura es una técnica de gestión de memoria utilizada por los sistemas operativos
+                        para dividir el espacio de direcciones de un proceso en segmentos de diferentes tamaños que
+                        pueden crecer o reducirse según las necesidades del programa. A diferencia de la paginación, que
+                        divide la memoria en páginas de tamaño fijo, la segmentación permite una partición más flexible
+                        y lógica para alinearse con estructuras de programas como código, pila y datos.
                     </p>
+
+                    <p class="card-text">
+                        A continuación se presentan algunas de las características de la segmentación pura.
+                    </p>
+
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                    Segmentos Lógicos
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        En lugar de dividir la memoria física en bloques de tamaño fijo, la segmentación
+                                        pura divide el espacio de direcciones en segmentos lógicos que corresponden a
+                                        diferentes partes del programa. Estos segmentos pueden incluir código de
+                                        programa, datos globales, pila de ejecución, etc.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseTwo">
+                                    Direcciones Segmentadas
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        Las direcciones en sistemas segmentados constan de dos partes: un número de
+                                        segmento y un desplazamiento dentro de ese segmento. Esto permite que cada
+                                        segmento se procese de forma independiente para la protección y la gestión del
+                                        almacenamiento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseThree">
+                                    Tablas de Segmentos
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        Cada proceso tiene una tabla de segmentos que contiene la base y los límites de
+                                        cada segmento. La base es la dirección inicial del segmento en la memoria física
+                                        y el límite define el tamaño del segmento.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseFour">
+                                    Protección y Compartición
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFour">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        La segmentación permite una protección detallada de la memoria al permitir que
+                                        cada segmento tenga sus propios permisos (lectura, escritura, ejecución).
+                                        Además, facilita compartir segmentos entre procesos, como código en bibliotecas
+                                        compartidas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card-text">
+                        Aunque la segmentación pura es menos común en los sistemas operativos modernos que la paginación
+                        o la segmentación de páginas, sigue siendo una técnica valiosa en determinadas situaciones,
+                        especialmente cuando proteger y compartir la memoria es importante.
+                    </p>
+
+                    <br>
+
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                          <a class="page-link" href="3-2-memoria-virtual.html">Anterior</a>
+                            <a class="page-link" href="3-2-memoria-virtual.html">Anterior</a>
                         </li>
                         <li class="page-item"><a class="page-link" href="3-3-segmentacion.html">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="3-3-1-implementacion-de-la-segmentacion-pura.html">2</a></li>
-                        <li class="page-item"><a class="page-link" href="3-3-2-segmentacion-por-paginacion.html">3</a></li>
-                        <li class="page-item"><a class="page-link" href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="bibliografia.html">Lista de referencias bibliográficas</a>
+                        <li class="page-item active"><a class="page-link"
+                                href="3-3-1-implementacion-de-la-segmentacion-pura.html">2</a></li>
+                        <li class="page-item"><a class="page-link" href="3-3-2-segmentacion-por-paginacion.html">3</a>
                         </li>
-                      </ul>
+                        <li class="page-item">
+                            <a class="page-link" href="bibliografia.html">Lista de referencias bibliográficas</a>
+                        </li>
+                    </ul>
 
                 </div>
-                
+
             </div>
 
-           
+
 
         </section>
         <!-- Section 1 -->

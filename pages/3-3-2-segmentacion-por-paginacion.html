@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>3.3.2 Segmentación</title>
+    <title>3.3.2 Segmentación con paginación</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap CSS-->
@@ -52,32 +52,71 @@
         <!-- Section 1 -->
         <section>
             <div class="card">
-                <h5 class="card-header">3.3.2 Segmentación</h5>
+                <h5 class="card-header">3.3.2 Segmentación con paginación</h5>
 
                 <div class="card-body">
 
                     <p class="card-text">
-                        En construcción
+                        La segmentación por paginación es común en los sistemas operativos modernos como UNIX y algunas
+                        variantes de Windows. Esta técnica equilibra la gestión de recursos lógicos y la eficiencia de
+                        la asignación de memoria, lo que la hace adecuada para una amplia gama de aplicaciones y
+                        sistemas.
+                    </p>
+
+                    <p class="card-text">
+                        Combina los beneficios de la segmentación y la paginación para
+                        administrar el almacenamiento de manera más eficiente y flexible. Este enfoque híbrido le
+                        permite dividir lógicamente el espacio de direcciones de un proceso en segmentos y cada segmento
+                        en páginas de tamaño fijo. Esto le permite mantener la lógica de su segmentación mientras
+                        minimiza la fragmentación externa, un problema común con la segmentación pura.
+                    </p>
+
+                    <p class="card-text">
+                        Para implementar la segmentación mediante paginación, se utilizan tanto tablas de segmentos como
+                        tablas de varias páginas. La tabla de segmentos mantiene información sobre cada segmento,
+                        incluida su base y límites, y un puntero a la tabla de páginas correspondiente. Cada segmento
+                        tiene su propia tabla de páginas que gestiona la traducción de direcciones dentro de ese
+                        segmento.
+                    </p>
+
+                    <p class="card-text">
+                        La traducción de direcciones en este sistema implica varios pasos. Primero, se usa el número de
+                        segmento de la dirección lógica para buscar en la tabla de segmentos, obteniendo la base del
+                        segmento y el puntero a su tabla de páginas. Luego, el desplazamiento dentro del segmento se
+                        divide en un número de página y un desplazamiento dentro de la página. Este número de página se
+                        utiliza para buscar en la tabla de páginas del segmento, obteniendo el marco de página en la
+                        memoria física, que se combina con el desplazamiento para obtener la dirección física final.
+                    </p>
+
+                    <p class="card-text">
+                        Es principales ventajas de la segmentación con paginación incluyen la reducción de la
+                        fragmentación externa y la posibilidad de una protección y compartición de memoria más granular.
+                        Sin embargo, este enfoque también introduce una mayor complejidad en la traducción de
+                        direcciones y un mayor overhead debido a la necesidad de mantener múltiples tablas de segmentos
+                        y páginas. Esta técnica es utilizada en sistemas operativos modernos, como algunas variantes de
+                        UNIX y Windows, proporcionando un equilibrio entre la gestión lógica de los recursos y la
+                        eficiencia de la asignación de memoria.
                     </p>
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                          <a class="page-link" href="3-2-memoria-virtual.html">Anterior</a>
+                            <a class="page-link" href="3-2-memoria-virtual.html">Anterior</a>
                         </li>
                         <li class="page-item"><a class="page-link" href="3-3-segmentacion.html">1</a></li>
-                        <li class="page-item"><a class="page-link" href="3-3-1-implementacion-de-la-segmentacion-pura.html">2</a></li>
-                        <li class="page-item active"><a class="page-link" href="3-3-2-segmentacion-por-paginacion.html">3</a></li>
-                        <li class="page-item"><a class="page-link" href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="3-3-1-implementacion-de-la-segmentacion-pura.html">2</a></li>
+                        <li class="page-item active"><a class="page-link"
+                                href="3-3-2-segmentacion-por-paginacion.html">3</a></li>
                         <li class="page-item">
                             <a class="page-link" href="bibliografia.html">Lista de referencias bibliográficas</a>
                         </li>
-                      </ul>
+                    </ul>
 
                 </div>
-                
+
             </div>
 
-           
+
 
         </section>
         <!-- Section 1 -->

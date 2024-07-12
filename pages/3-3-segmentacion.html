@@ -57,27 +57,138 @@
                 <div class="card-body">
 
                     <p class="card-text">
-                        En construcción
+                        Se trata de una técnica avanzada de gestión de memoria en sistemas operativos que permite
+                        dividir el espacio de direcciones lógicas de un proceso en segmentos de tamaño variable,
+                        representando cada segmento una unidad lógica y semántica del programa.
                     </p>
+
+                    <p class="card-text">
+                        A continuación se presentan algunos puntos importantes que se cubren cuando se emplea la
+                        segmentación de memoria.
+                    </p>
+
+
+
+
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                    aria-controls="panelsStayOpen-collapseOne">
+                                    Organización lógica
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        En lugar de tratar la memoria como un único bloque contiguo, la segmentación le
+                                        permite dividir la memoria en segmentos más pequeños que corresponden a partes
+                                        lógicamente relacionadas de su programa, como por ejemplo: B. Código, datos
+                                        globales, pilas de llamadas y otras estructuras de datos.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseTwo">
+                                    Protección y compartición
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+                                        Cada segmento puede tener permisos diferentes, lo que facilita la implementación
+                                        de mecanismos de protección y seguridad. Esto permite compartir segmentos entre
+                                        diferentes procesos o protegerlos del acceso exclusivo por parte de un proceso
+                                        en particular.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseThree">
+                                    Fragmentación interna reducida
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+
+                                        A diferencia de la paginación, que puede desperdiciar pequeñas porciones de
+                                        memoria al dividirla en páginas fijas, la segmentación reduce la fragmentación
+                                        interna.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                                    aria-controls="panelsStayOpen-collapseFour">
+                                    Gestión flexible de memoria
+                                </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                                aria-labelledby="panelsStayOpen-headingFour">
+                                <div class="accordion-body">
+                                    <p class="card-text">
+
+                                        Los segmentos pueden crecer o reducirse dinámicamente según las necesidades del
+                                        programa durante la ejecución. Esto mejora el uso de la memoria y evita
+                                        asignaciones estáticas que pueden desperdiciar recursos.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card-text">
+                        La segmentación de memoria proporciona una forma flexible y eficiente de administrar, 
+                        lo que facilita proteger, compartir y administrar dinámicamente recursos de memoria
+                        para programas complejos de varios niveles.
+                    </p>
+
+                    <p class="card-text">
+                        Dominar esta técnica es fundamental para los
+                        programadores y desarrolladores de sistemas operativos que desean optimizar el rendimiento y la
+                        seguridad de las aplicaciones en entornos informáticos modernos.
+                    </p>
+
+                    <br>
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                          <a class="page-link" href="3-2-memoria-virtual.html">Anterior</a>
+                            <a class="page-link" href="3-2-memoria-virtual.html">Anterior</a>
                         </li>
                         <li class="page-item active"><a class="page-link" href="3-3-segmentacion.html">1</a></li>
-                        <li class="page-item"><a class="page-link" href="3-3-1-implementacion-de-la-segmentacion-pura.html">2</a></li>
-                        <li class="page-item"><a class="page-link" href="3-3-2-segmentacion-por-paginacion.html">3</a></li>
-                        <li class="page-item"><a class="page-link" href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="bibliografia.html">Lista de referencias bibliográficas</a>
+                        <li class="page-item"><a class="page-link"
+                                href="3-3-1-implementacion-de-la-segmentacion-pura.html">2</a></li>
+                        <li class="page-item"><a class="page-link" href="3-3-2-segmentacion-por-paginacion.html">3</a>
                         </li>
-                      </ul>
+                        <li class="page-item">
+                            <a class="page-link" href="bibliografia.html">Lista de referencias bibliográficas</a>
+                        </li>
+                    </ul>
 
                 </div>
-                
+
             </div>
 
-           
+
 
         </section>
         <!-- Section 1 -->
