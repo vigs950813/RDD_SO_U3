@@ -56,47 +56,68 @@
 
                 <div class="card-body">
 
-                    <p><span style="font-size:12pt;">Es una t&eacute;cnica o mecanismo implementado en el Sistema Operativo para poder ejecutar programas que requieren m&aacute;s memoria que la disponible f&iacute;sicamente haciendo uso del almacenamiento en disco.</span></p>
-                    <p><span style="font-size:12pt;">Esto evidentemente representa tener ventajas y desventajas, que principalmente ser&iacute;an:</span></p>
-                    <p><span style="font-size:12pt;">Ventajas</span></p>
+                    <p class="card-text">Es una técnica o mecanismo implementado en el Sistema Operativo para poder
+                        ejecutar programas que requieren más memoria que la disponible físicamente haciendo uso del
+                        almacenamiento en disco.</p>
+                    <p class="card-text">Esto evidentemente representa tener ventajas y desventajas, que principalmente
+                        serían:</p>
+                    <p class="card-text"><b>Ventajas</b></p>
+
                     <ul>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Mayor Capacidad de Memoria</span></strong><span style="font-size:12pt;">: Permite a los programas usar m&aacute;s memoria de la que est&aacute; f&iacute;sicamente disponible en la RAM.</span></p>
+                        <li>
+                            <p class="card-text"><b>Mayor Capacidad de Memoria</b>: Permite a los programas usar más memoria de
+                                la que está físicamente disponible en la RAM.</p>
                         </li>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Aislamiento de Procesos</span></strong><span style="font-size:12pt;">: Cada proceso tiene su propio espacio de direcci&oacute;n virtual, lo que evita que un proceso afecte a otros.</span></p>
+                        <li>
+                            <p class="card-text"><b>Aislamiento de Procesos</b>: Cada proceso tiene su propio espacio de
+                                dirección virtual, lo que evita que un proceso afecte a otros.</p>
                         </li>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Seguridad</span></strong><span style="font-size:12pt;">: Mejora la seguridad al aislar los procesos y evitar que accedan a la memoria de otros procesos.</span></p>
+                        <li>
+                            <p class="card-text"><b>Seguridad</b>: Mejora la seguridad al aislar los procesos y evitar que
+                                accedan a la memoria de otros procesos.</p>
                         </li>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Gesti&oacute;n de Memoria Eficiente</span></strong><span style="font-size:12pt;">: Permite al sistema operativo manejar mejor la memoria f&iacute;sica, moviendo datos entre la RAM y el disco seg&uacute;n sea necesario.</span></p>
+                        <li>
+                            <p class="card-text"><b>Gestión de Memoria Eficiente</b>: Permite al sistema operativo manejar
+                                mejor la memoria física, moviendo datos entre la RAM y el disco según sea necesario.</p>
                         </li>
                     </ul>
-                    <p><span style="font-size:12pt;">Desventajas</span></p>
+                    <p class="card-text"><b>Desventajas</b></p>
                     <ul>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Rendimiento</span></strong><span style="font-size:12pt;">: Principalmente afecta en el rendimiento cuando se utiliza mucho el archivo de intercambio, ya que los discos duros son mucho m&aacute;s lentos que la RAM.</span></p>
+                        <li>
+                            <p class="card-text"><b>Rendimiento</b>: Principalmente afecta en el rendimiento cuando se utiliza
+                                mucho el archivo de intercambio, ya que los discos duros son mucho más lentos que la
+                                RAM.</p>
                         </li>
-                        <li style="list-style-type:disc;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Complejidad</span></strong><span style="font-size:12pt;">: La implementaci&oacute;n de la memoria virtual agrega complejidad al sistema operativo.</span></p>
+                        <li>
+                            <p class="card-text"><b>Complejidad</b>: La implementación de la memoria virtual agrega complejidad
+                                al sistema operativo.</p>
                         </li>
                     </ul>
-                    <p><span style="font-size:12pt;">&iquest;C&oacute;mo funciona?</span></p>
+                    <p class="card-text"><b>¿Cómo funciona?</b></p>
                     <ol>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Se asigna un espacio de Direcci&oacute;n Virtual</span></strong><span style="font-size:12pt;">: Cada proceso en un sistema operativo tiene su propio espacio de direcci&oacute;n virtual. Esto permite que los procesos no interfieran entre s&iacute; y mejora la seguridad y estabilidad del sistema.</span></p>
+                        <li>
+                            <p class="card-text"><b>Se asigna un espacio de Dirección Virtual</b>: Cada proceso en un sistema
+                                operativo tiene su propio espacio de dirección virtual. Esto permite que los procesos no
+                                interfieran entre sí y mejora la seguridad y estabilidad del sistema.</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Paginaci&oacute;n</span></strong><span style="font-size:12pt;">: La memoria virtual se divide en p&aacute;ginas (M&aacute;s adelante se extender&aacute; su explicaci&oacute;n). El sistema operativo entonces carga la p&aacute;gina solicitada desde el disco duro a la RAM.&nbsp;</span></p>
+                        <li>
+                            <p class="card-text"><b>Paginación</b>: La memoria virtual se divide en páginas (Más adelante se
+                                extenderá su explicación). El sistema operativo entonces carga la página solicitada
+                                desde el disco duro a la RAM.</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Tabla de P&aacute;ginas</span></strong><span style="font-size:12pt;">: El sistema operativo mantiene una tabla de p&aacute;ginas para cada proceso. Esta tabla traduce direcciones de memoria virtual a direcciones de memoria f&iacute;sica.</span></p>
+                        <li>
+                            <p class="card-text"><b>Tabla de Páginas</b>: El sistema operativo mantiene una tabla de páginas
+                                para cada proceso. Esta tabla traduce direcciones de memoria virtual a direcciones de
+                                memoria física.</p>
                         </li>
-                        <li style="list-style-type:decimal;font-size:12pt;">
-                            <p><strong><span style="font-size:12pt;">Intercambio (Swapping)</span></strong><span style="font-size:12pt;">: Si la RAM se llena, el sistema operativo puede mover p&aacute;ginas que no se est&aacute;n utilizando a un &aacute;rea del disco duro llamada &quot;archivo de intercambio&quot; o &quot;swap space&quot;. Esto libera RAM para otras p&aacute;ginas que se necesitan en ese momento.</span></p>
+                        <li>
+                            <p class="card-text"><b>Intercambio (Swapping)</b>: Si la RAM se llena, el sistema operativo puede
+                                mover páginas que no se están utilizando a un área del disco duro llamada "archivo de
+                                intercambio" o "swap space". Esto libera RAM para otras páginas que se necesitan en ese
+                                momento.</p>
                         </li>
                     </ol>
+
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
@@ -105,17 +126,18 @@
                         <li class="page-item active"><a class="page-link" href="3-2-memoria-virtual.html">1</a></li>
                         <li class="page-item"><a class="page-link" href="3-2-1-paginacion.html">2</a></li>
                         <li class="page-item"><a class="page-link" href="3-2-2-tablas-de-pagina.html">3</a></li>
-                        <li class="page-item"><a class="page-link" href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
                         <li class="page-item">
                             <a class="page-link" href="3-3-segmentacion.html">Siguiente Tema</a>
                         </li>
                     </ul>
 
                 </div>
-                
+
             </div>
 
-           
+
 
         </section>
         <!-- Section 1 -->
