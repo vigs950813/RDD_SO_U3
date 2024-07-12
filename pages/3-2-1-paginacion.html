@@ -57,12 +57,65 @@
                 <div class="card-body">
 
                     <p class="card-text">
-                        En construcción
+                        Como vimos anteriormente, para poder implementar la memoria virtual, se hace uso de "páginas".
+                        Se divice la memoria virtual y física en bloques de tamaño fijo llamados páginas y marcos de página, respectivamente.
                     </p>
+
+                    <p><span style="font-size:12pt;">La pagina corresponde con una zona de memoria contigua de un determinado tama&ntilde;o. Por motivos de eficiencia en la traducci&oacute;n, este tama&ntilde;o debe ser potencia de 2.</span></p>
+                    <p><span style="font-size:12pt;">El mapa de memoria de cada proceso se considera dividido en p&aacute;ginas. A su vez, la memoria principal del sistema se considera dividida en zonas del mismo tama&ntilde;o que se denominan marcos de p&aacute;gina. Un marco de p&aacute;gina contendr&aacute; en un determinado instante una p&aacute;gina de memoria de proceso.</span></p>
+                    <p><br></p>
+                    <center>
+                        <p><span style="font-size:12pt;"><span style="border:none;"><img src="https://lh7-us.googleusercontent.com/docsz/AD_4nXciXVjFU4j99Bgnk-Hbr5n_a3dIYuF8_Civ1A6ZMxJ68jMKi_7FRiaFVipYVJ2acXALH--vDOJWv-K8zNtSJ_plMOYwF3zGAvwW2v_hoU3L7yO6rQ83AA7G7U98444BzdPWenvL1vxKNUKV7O4GpAdrczXYBDQYKiPM3-y2?key=uTeMI0JvJN0R0zudXnEkOA" width="589" height="377"></span></span></p>
+                        <p><span style="font-size:12pt;">Fig. Esquema de traducci&oacute;n de la paginaci&oacute;n</span></p>
+                    </center>
+                    <p><br></p>
+                    <ol>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:12pt;">Divisi&oacute;n de la Memoria</span></strong><span style="font-size:12pt;">: La memoria virtual y la memoria f&iacute;sica se dividen en p&aacute;ginas y marcos de p&aacute;gina de igual tama&ntilde;o. Esto facilita la gesti&oacute;n y asignaci&oacute;n de memoria.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:12pt;">Asignaci&oacute;n de P&aacute;ginas</span></strong><span style="font-size:12pt;">: Cuando un programa necesita memoria, el sistema operativo asigna p&aacute;ginas virtuales al programa. Estas p&aacute;ginas se mapean a marcos de p&aacute;gina en la memoria f&iacute;sica.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:12pt;">Traducci&oacute;n de Direcciones</span></strong><span style="font-size:12pt;">: Cuando el programa accede a una direcci&oacute;n de memoria, la unidad de gesti&oacute;n de memoria (MMU) traduce la direcci&oacute;n virtual a una direcci&oacute;n f&iacute;sica utilizando la tabla de p&aacute;ginas.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:12pt;">Fallas de P&aacute;gina</span></strong><span style="font-size:12pt;">: Si el programa intenta acceder a una p&aacute;gina que no est&aacute; en la memoria f&iacute;sica (porque ha sido paginada a disco), se produce una falla de p&aacute;gina. El sistema operativo debe entonces cargar la p&aacute;gina requerida desde el disco a un marco de p&aacute;gina en la memoria f&iacute;sica.</span></p>
+                        </li>
+                    </ol>
+                    <p><span style="font-size:12pt;">Ejemplo de Paginaci&oacute;n</span></p>
+                    <p><span style="font-size:12pt;">Imagina un sistema con la siguiente configuraci&oacute;n:</span></p>
+                    <ul>
+                        <li style="list-style-type:disc;font-size:12pt;">
+                            <p><span style="font-size:12pt;">Tama&ntilde;o de p&aacute;gina: 4 KB</span></p>
+                        </li>
+                        <li style="list-style-type:disc;font-size:12pt;">
+                            <p><span style="font-size:12pt;">Memoria f&iacute;sica: 16 KB (4 marcos de p&aacute;gina)</span></p>
+                        </li>
+                        <li style="list-style-type:disc;font-size:12pt;">
+                            <p><span style="font-size:12pt;">Memoria virtual: 64 KB (16 p&aacute;ginas)</span></p>
+                        </li>
+                    </ul>
+                    <p><span style="font-size:12pt;">Proceso</span></p>
+                    <ol>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:11pt;">Asignaci&oacute;n de P&aacute;ginas</span></strong><span style="font-size:12pt;">: Un programa solicita 12 KB de memoria, que se dividen en 3 p&aacute;ginas de 4 KB cada una.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:12pt;">Mapeo (traducci&oacute;n)</span></strong><span style="font-size:12pt;">: Estas 3 p&aacute;ginas se mapean a 3 de los 4 marcos disponibles en la memoria f&iacute;sica.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:12pt;">Acceso a Memoria</span></strong><span style="font-size:12pt;">: Cuando el programa accede a una direcci&oacute;n de memoria, la MMU traduce la direcci&oacute;n virtual a una direcci&oacute;n f&iacute;sica utilizando la tabla de p&aacute;ginas.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><strong><span style="font-size:12pt;">Falla de P&aacute;gina</span></strong><span style="font-size:12pt;">: Si el programa intenta acceder a una p&aacute;gina que no est&aacute; en la memoria f&iacute;sica, el sistema operativo carga la p&aacute;gina requerida desde el disco a la memoria f&iacute;sica.</span></p>
+                        </li>
+                    </ol>
+                    <p><span style="font-size:12pt;">Un aspecto importante en el rendimiento de un sistema de paginaci&oacute;n es el tama&ntilde;o de la p&aacute;gina. Evidentemente, su tama&ntilde;o debe ser potencia de 2 y, dado que va a servir de base memoria virtual, m&uacute;ltiplo del tama&ntilde;o del bloque de disco. El tama&ntilde;o t&iacute;pico puede estar entre 2KB y 16 KB.</span></p>
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                          <a class="page-link" href="3-1-abstraccion-de-memoria.html">Anterior</a>
+                            <a class="page-link" href="3-1-abstraccion-de-memoria.html">Anterior</a>
                         </li>
                         <li class="page-item"><a class="page-link" href="3-2-memoria-virtual.html">1</a></li>
                         <li class="page-item active"><a class="page-link" href="3-2-1-paginacion.html">2</a></li>
@@ -71,7 +124,7 @@
                         <li class="page-item">
                             <a class="page-link" href="3-3-segmentacion.html">Siguiente Tema</a>
                         </li>
-                      </ul>
+                    </ul>
 
                 </div>
                 

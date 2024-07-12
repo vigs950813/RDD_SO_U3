@@ -56,22 +56,57 @@
 
                 <div class="card-body">
 
-                    <p class="card-text">
-                        En construcción
-                    </p>
+                    <p><span style="font-size:12pt;">Son m&eacute;todos que los sistemas operativos utilizan para decidir qu&eacute; p&aacute;gina en memoria f&iacute;sica (RAM) debe ser reemplazada cuando una nueva p&aacute;gina necesita ser cargada y no hay suficiente espacio disponible. Dentro de los m&aacute;s comunes est&aacute;n:</span></p>
+                    <p><span style="font-size:12pt;">1. FIFO (First-In, First-Out)</span></p>
+                    <p><span style="font-size:12pt;">Reemplaza la p&aacute;gina que ha estado en la memoria por m&aacute;s tiempo.&nbsp;</span></p>
+                    <p><span style="font-size:12pt;">A pesar de ser sencillo de usar, como desventaja tiene que no siempre es eficiente, ya que la p&aacute;gina m&aacute;s antigua puede seguir siendo utilizada frecuentemente.</span></p>
+                    <p><strong><span style="font-size:12pt;">Ejemplo</span></strong><span style="font-size:12pt;">: Si las p&aacute;ginas se cargaron en el orden [A, B, C, D] y se necesita cargar una nueva p&aacute;gina E, se reemplazar&aacute; A, la p&aacute;gina que lleg&oacute; primero.</span></p>
+                    <p><span style="font-size:12pt;">2. LRU (Least Recently Used)</span></p>
+                    <p><span style="font-size:12pt;">Este algoritmo reemplaza la p&aacute;gina que no ha sido usada por el mayor per&iacute;odo de tiempo.</span></p>
+                    <p><span style="font-size:12pt;">Suele ser m&aacute;s eficiente que FIFO porque considera el uso reciente de las p&aacute;ginas.</span></p>
+                    <p><span style="font-size:12pt;">Requiere mantener un registro del orden de acceso de las p&aacute;ginas.</span></p>
+                    <p><strong><span style="font-size:12pt;">Ejemplo</span></strong><span style="font-size:12pt;">: Si las p&aacute;ginas [A, B, C, D] fueron accedidas en el orden [A, C, B, D] y se necesita cargar una nueva p&aacute;gina E, se reemplazar&aacute; A, ya que es la p&aacute;gina que no ha sido usada por m&aacute;s tiempo.</span></p>
+                    <p><span style="font-size:12pt;">3. OPT (Optimal Page Replacement)</span></p>
+                    <p><span style="font-size:12pt;">Aqui se reemplaza la p&aacute;gina que no ser&aacute; usada por el per&iacute;odo de tiempo m&aacute;s largo en el futuro. En cuesti&oacute;n de rendimiento, es el algoritmo perfecto, pero no se puede implementar en la pr&aacute;ctica porque requiere conocer el futuro.</span></p>
+                    <p><strong><span style="font-size:12pt;">Ejemplo</span></strong><span style="font-size:12pt;">: Si sabemos que las p&aacute;ginas [A, B, C, D] ser&aacute;n accedidas en el orden [B, A, D, C] y se necesita cargar una nueva p&aacute;gina E, se reemplazar&aacute; C, ya que ser&aacute; la &uacute;ltima en ser utilizada en el futuro.</span></p>
+                    <p><span style="font-size:12pt;">4. CLOCK (Second Chance)</span></p>
+                    <p><span style="font-size:12pt;">Es una versi&oacute;n mejorada de FIFO. Cada p&aacute;gina tiene un bit que indica si ha sido usada recientemente. Si una p&aacute;gina tiene el bit en 1, se le da una &quot;segunda oportunidad&quot; y se pone el bit en 0 en lugar de ser reemplazada.</span></p>
+                    <p><strong><span style="font-size:12pt;">Ejemplo</span></strong><span style="font-size:12pt;">: Si las p&aacute;ginas [A, B, C, D] est&aacute;n en la memoria y sus bits de uso son [1, 0, 1, 0], y se necesita cargar una nueva p&aacute;gina E, se comenzar&aacute; desde A. Si A tiene su bit en 1, se pone en 0 y se pasa a la siguiente p&aacute;gina, B, que ser&aacute; reemplazada si su bit es 0.</span></p>
+                    <p><span style="font-size:12pt;">5. NRU (Not Recently Used)</span></p>
+                    <p><span style="font-size:12pt;">Este algoritmo clasifica las p&aacute;ginas en cuatro categor&iacute;as seg&uacute;n sus bits de referencia y modificaci&oacute;n. Luego, reemplaza una p&aacute;gina de la categor&iacute;a m&aacute;s baja disponible.</span></p>
+                    <p><strong><span style="font-size:12pt;">Categor&iacute;as</span></strong><span style="font-size:12pt;">:</span></p>
+                    <ol>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><span style="font-size:12pt;">No referenciada, no modificada.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><span style="font-size:12pt;">No referenciada, modificada.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><span style="font-size:12pt;">Referenciada, no modificada.</span></p>
+                        </li>
+                        <li style="list-style-type:decimal;font-size:12pt;">
+                            <p><span style="font-size:12pt;">Referenciada, modificada.</span></p>
+                        </li>
+                    </ol>
+                    <p><strong><span style="font-size:12pt;">Ejemplo</span></strong><span style="font-size:12pt;">: Si las p&aacute;ginas [A, B, C, D] tienen bits de referencia y modificaci&oacute;n como [0, 0], [1, 0], [0, 1], [1, 1] respectivamente, y se necesita cargar una nueva p&aacute;gina E, se reemplazar&aacute; A, ya que est&aacute; en la categor&iacute;a 1.</span></p>
+                    <p><span style="font-size:12pt;">6. LFU (Least Frequently Used)</span></p>
+                    <p><span style="font-size:12pt;">Este algoritmo reemplaza la p&aacute;gina que ha sido usada con menos frecuencia.</span></p>
+                    <p><span style="font-size:12pt;">Toma en cuenta el uso hist&oacute;rico de las p&aacute;ginas, lo que puede ser efectivo en ciertos casos</span></p>
+                    <p><strong><span style="font-size:12pt;">Ejemplo</span></strong><span style="font-size:12pt;">: Si las p&aacute;ginas [A, B, C, D] tienen conteos de uso [3, 1, 2, 4], y se necesita cargar una nueva p&aacute;gina E, se reemplazar&aacute; B, la p&aacute;gina con el menor conteo de uso.</span></p>
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                          <a class="page-link" href="3-1-abstraccion-de-memoria.html">Anterior</a>
+                            <a class="page-link" href="3-1-abstraccion-de-memoria.html">Anterior</a>
                         </li>
                         <li class="page-item"><a class="page-link" href="3-2-memoria-virtual.html">1</a></li>
                         <li class="page-item"><a class="page-link" href="3-2-1-paginacion.html">2</a></li>
                         <li class="page-item"><a class="page-link" href="3-2-2-tablas-de-pagina.html">3</a></li>
                         <li class="page-item active"><a class="page-link" href="3-2-3-algoritmos-de-sustitucion-de-paginas.html">4</a></li>
                         <li class="page-item">
-                          <a class="page-link" href="3-3-segmentacion.html">Siguiente Tema</a>
+                            <a class="page-link" href="3-3-segmentacion.html">Siguiente Tema</a>
                         </li>
-                      </ul>
+                    </ul>
 
                 </div>
                 
