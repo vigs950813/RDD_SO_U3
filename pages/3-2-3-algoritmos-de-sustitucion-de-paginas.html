@@ -57,41 +57,544 @@
                 <div class="card-body">
 
                     <p class="card-text">Son métodos que los sistemas operativos utilizan para decidir qué página en
-                        memoria física (RAM) debe ser reemplazada cuando una nueva página necesita ser cargada y no hay
+                        la Memoria de Acceso Aleatorio debe ser reemplazada cuando una nueva página necesita ser cargada y no hay
                         suficiente espacio disponible. Dentro de los más comunes están:</p>
-                    <p class="card-text"><b>1. FIFO (First-In, First-Out)</b></p>
+
+                    <p class="card-text"><b>1. <i>First-In, First-Out</i> (Primero en entrar, primero en salir)</b></p>
+
                     <p class="card-text">Reemplaza la página que ha estado en la memoria por más tiempo.&nbsp;</p>
+
                     <p class="card-text">A pesar de ser sencillo de usar, como desventaja tiene que no siempre es
                         eficiente, ya que la página más antigua puede seguir siendo utilizada frecuentemente.</p>
+
                     <p class="card-text"><b>Ejemplo</b>: Si las páginas se cargaron en el orden [A, B, C, D] y se
                         necesita cargar una nueva página E, se reemplazará A, la página que llegó primero.</p>
-                    <p class="card-text"><b>2. LRU (Least Recently Used)</b></p>
+
+                        <div class="card-body">
+                            <pre class="card-text card-code">
+        #include &#60;stdio.h&#62;
+        #include &#60;stdlib.h&#62;
+        #include &#60;stdbool.h&#62;
+        
+        #define NUM_FRAMES 4   // Número de frames (páginas físicas en memoria)
+        #define NUM_PAGES 10   // Número total de páginas virtuales
+        
+        // Estructura para un frame de página en memoria física
+        typedef struct Frame {
+            int page;           // Número de página almacenada en el frame (valor -1 si está vacío)
+            bool valid;         // Indica si el frame está ocupado (true) o vacío (false)
+            struct Frame *prev; // Puntero al frame previo (para lista doblemente enlazada)
+            struct Frame *next; // Puntero al frame siguiente (para lista doblemente enlazada)
+        } Frame;
+        
+        // Estructura para la lista de frames en memoria física
+        typedef struct FrameList {
+            int numFrames;      // Número de frames actualmente ocupados
+            Frame *head;        // Puntero al primer frame de la lista
+            Frame *tail;        // Puntero al último frame de la lista
+        } FrameList;
+        
+        // Función para crear un nuevo frame
+        Frame* createFrame() {
+            Frame *frame = (Frame *)malloc(sizeof(Frame));
+            if (frame != NULL) {
+                frame->page = -1;   // Inicialmente no hay página asignada
+                frame->valid = false;
+                frame->prev = NULL;
+                frame->next = NULL;
+            }
+            return frame;
+        }
+        
+        // Función para inicializar la lista de frames en memoria física
+        FrameList* createFrameList() {
+            FrameList *frameList = (FrameList *)malloc(sizeof(FrameList));
+            if (frameList != NULL) {
+                frameList->numFrames = 0;
+                frameList->head = NULL;
+                frameList->tail = NULL;
+            }
+            return frameList;
+        }
+        
+        // Función para insertar un frame al frente de la lista (más recientemente usado)
+        void insertFrame(FrameList *frameList, Frame *frame) {
+            if (frameList->head == NULL) {
+                // Lista vacía
+                frameList->head = frame;
+                frameList->tail = frame;
+            } else {
+                // Insertar al frente de la lista
+                frame->next = frameList->head;
+                frameList->head->prev = frame;
+                frameList->head = frame;
+            }
+            frameList->numFrames++;
+        }
+        
+        // Función para eliminar un frame de la lista (menos recientemente usado)
+        void removeFrame(FrameList *frameList, Frame *frame) {
+            if (frame->prev != NULL) {
+                frame->prev->next = frame->next;
+            } else {
+                frameList->head = frame->next;
+            }
+            if (frame->next != NULL) {
+                frame->next->prev = frame->prev;
+            } else {
+                frameList->tail = frame->prev;
+            }
+            frameList->numFrames--;
+            free(frame);
+        }
+        
+        // Función para buscar un frame específico por número de página
+        Frame* findFrame(FrameList *frameList, int page) {
+            Frame *current = frameList->head;
+            while (current != NULL) {
+                if (current->page == page) {
+                    return current;
+                }
+                current = current->next;
+            }
+            return NULL;
+        }
+        
+        // Función para simular la carga de una página a memoria física utilizando FIFO
+        void loadPage(FrameList *frameList, int page) {
+            Frame *frame = createFrame();
+            frame->page = page;
+            frame->valid = true;
+        
+            // Si la lista de frames ya está llena, eliminar el frame más antiguo (FIFO)
+            if (frameList->numFrames == NUM_FRAMES) {
+                Frame *fifoFrame = frameList->tail;
+                removeFrame(frameList, fifoFrame);
+            }
+        
+            insertFrame(frameList, frame);
+        }
+        
+        // Función para imprimir el estado actual de la lista de frames (solo para fines de depuración)
+        void printFrameList(FrameList *frameList) {
+            printf("Estado actual de la lista de frames:\n");
+            Frame *current = frameList->head;
+            while (current != NULL) {
+                printf("Página: %d, ", current->page);
+                if (current->valid) {
+                    printf("Estado: Ocupado\n");
+                } else {
+                    printf("Estado: Vacío\n");
+                }
+                current = current->next;
+            }
+            printf("\n");
+        }
+        
+        int main() {
+            FrameList *frameList = createFrameList();
+        
+            // Simular la carga de varias páginas a memoria física
+            loadPage(frameList, 1);
+            loadPage(frameList, 2);
+            loadPage(frameList, 3);
+            loadPage(frameList, 4);
+            printFrameList(frameList);  // Debería imprimir el estado actual de los frames
+        
+            // Intentar cargar otra página cuando todos los frames están ocupados
+            loadPage(frameList, 5);
+            printFrameList(frameList);  // Debería imprimir el estado actual después de la sustitución
+        
+            // Liberar la memoria utilizada por la lista de frames
+            free(frameList);
+        
+            return 0;
+        }
+        
+                                    
+
+                            </pre>
+                        </div>
+    
+                        <p class="text-center">
+                            <b>Código 4. Ejemplo de algoritmo FIFO.</b>
+                        </p>
+    
+                        <p class="card-text">
+                            Este código muestra cómo adaptar el algoritmo FIFO para simular la gestión de memoria física en un sistema
+                            operativo, donde se utilizan frames para almacenar páginas de memoria.
+                        </p>
+
+                    <p class="card-text"><b>2. LRU (Menos Recientemente Utilizado)</b></p>
+
                     <p class="card-text">Este algoritmo reemplaza la página que no ha sido usada por el mayor período de
                         tiempo.</p>
+
                     <p class="card-text">Suele ser más eficiente que FIFO porque considera el uso reciente de las
                         páginas.</p>
+
                     <p class="card-text">Requiere mantener un registro del orden de acceso de las páginas.</p>
+
                     <p class="card-text"><b>Ejemplo</b>: Si las páginas [A, B, C, D] fueron accedidas en el orden [A, C,
                         B, D] y se necesita cargar una nueva página E, se reemplazará A, ya que es la página que no ha
                         sido usada por más tiempo.</p>
-                    <p class="card-text"><b>3. OPT (Optimal Page Replacement)</b></p>
+
+                        <div class="card-body">
+                            <pre class="card-text card-code">
+        #include &#60;stdio.h&#62;
+        #include &#60;stdlib.h&#62;
+        #include &#60;stdbool.h&#62;
+        
+        #define NUM_FRAMES 4   // Número de frames (páginas físicas en memoria)
+        #define NUM_PAGES 10   // Número total de páginas virtuales
+        
+        // Estructura para un frame de página en memoria física
+        typedef struct Frame {
+            int page;           // Número de página almacenada en el frame (valor -1 si está vacío)
+            bool valid;         // Indica si el frame está ocupado (true) o vacío (false)
+            struct Frame *prev; // Puntero al frame previo (para lista doblemente enlazada)
+            struct Frame *next; // Puntero al frame siguiente (para lista doblemente enlazada)
+        } Frame;
+        
+        // Estructura para la lista de frames en memoria física
+        typedef struct FrameList {
+            int numFrames;      // Número de frames actualmente ocupados
+            Frame *head;        // Puntero al primer frame de la lista
+            Frame *tail;        // Puntero al último frame de la lista
+        } FrameList;
+        
+        // Función para crear un nuevo frame
+        Frame* createFrame() {
+            Frame *frame = (Frame *)malloc(sizeof(Frame));
+            if (frame != NULL) {
+                frame->page = -1;   // Inicialmente no hay página asignada
+                frame->valid = false;
+                frame->prev = NULL;
+                frame->next = NULL;
+            }
+            return frame;
+        }
+        
+        // Función para inicializar la lista de frames en memoria física
+        FrameList* createFrameList() {
+            FrameList *frameList = (FrameList *)malloc(sizeof(FrameList));
+            if (frameList != NULL) {
+                frameList->numFrames = 0;
+                frameList->head = NULL;
+                frameList->tail = NULL;
+            }
+            return frameList;
+        }
+        
+        // Función para insertar un frame al frente de la lista (más recientemente usado)
+        void insertFrame(FrameList *frameList, Frame *frame) {
+            if (frameList->head == NULL) {
+                // Lista vacía
+                frameList->head = frame;
+                frameList->tail = frame;
+            } else {
+                // Insertar al frente de la lista
+                frame->next = frameList->head;
+                frameList->head->prev = frame;
+                frameList->head = frame;
+            }
+            frameList->numFrames++;
+        }
+        
+        // Función para eliminar un frame de la lista (menos recientemente usado)
+        void removeFrame(FrameList *frameList, Frame *frame) {
+            if (frame->prev != NULL) {
+                frame->prev->next = frame->next;
+            } else {
+                frameList->head = frame->next;
+            }
+            if (frame->next != NULL) {
+                frame->next->prev = frame->prev;
+            } else {
+                frameList->tail = frame->prev;
+            }
+            frameList->numFrames--;
+            free(frame);
+        }
+        
+        // Función para buscar un frame específico por número de página
+        Frame* findFrame(FrameList *frameList, int page) {
+            Frame *current = frameList->head;
+            while (current != NULL) {
+                if (current->page == page) {
+                    return current;
+                }
+                current = current->next;
+            }
+            return NULL;
+        }
+        
+        // Función para simular la carga de una página a memoria física
+        void loadPage(FrameList *frameList, int page) {
+            Frame *frame = createFrame();
+            frame->page = page;
+            frame->valid = true;
+        
+            // Si la lista de frames ya está llena, reemplazar la página menos recientemente usada (LRU)
+            if (frameList->numFrames == NUM_FRAMES) {
+                Frame *lruFrame = frameList->tail;
+                removeFrame(frameList, lruFrame);
+            }
+        
+            insertFrame(frameList, frame);
+        }
+        
+        // Función para imprimir el estado actual de la lista de frames (solo para fines de depuración)
+        void printFrameList(FrameList *frameList) {
+            printf("Estado actual de la lista de frames:\n");
+            Frame *current = frameList->head;
+            while (current != NULL) {
+                printf("Página: %d, ", current->page);
+                if (current->valid) {
+                    printf("Estado: Ocupado\n");
+                } else {
+                    printf("Estado: Vacío\n");
+                }
+                current = current->next;
+            }
+            printf("\n");
+        }
+        
+        int main() {
+            FrameList *frameList = createFrameList();
+        
+            // Simular la carga de varias páginas a memoria física
+            loadPage(frameList, 1);
+            loadPage(frameList, 2);
+            loadPage(frameList, 3);
+            loadPage(frameList, 4);
+            printFrameList(frameList);  // Debería imprimir el estado actual de los frames
+        
+            // Intentar cargar otra página cuando todos los frames están ocupados
+            loadPage(frameList, 5);
+            printFrameList(frameList);  // Debería imprimir el estado actual después de la sustitución
+        
+            // Liberar la memoria utilizada por la lista de frames
+            free(frameList);
+        
+            return 0;
+        }
+                                    
+
+                            </pre>
+                        </div>
+    
+                        <p class="text-center">
+                            <b>Código 5. Ejemplo de algoritmo LRU.</b>
+                        </p>
+    
+                        <p class="card-text">
+                            Este código muestra cómo adaptar el algoritmo LRU para simular la gestión de memoria física en un sistema
+                            operativo, donde se utilizan <i>frames</i> (marcos) para almacenar páginas de memoria.
+                        </p>
+
+                    <p class="card-text"><b>3. OPR (Reemplazo de Página Óptima)</b></p>
+
                     <p class="card-text">Aqui se reemplaza la página que no será usada por el período de tiempo más
                         largo en el futuro. En cuestión de rendimiento, es el algoritmo perfecto, pero no se puede
                         implementar en la práctica porque requiere conocer el futuro.</p>
+
                     <p class="card-text"><b>Ejemplo</b>: Si sabemos que las páginas [A, B, C, D] serán accedidas en el
                         orden [B, A, D, C] y se necesita cargar una nueva página E, se reemplazará C, ya que será la
                         última en ser utilizada en el futuro.</p>
-                    <p class="card-text"><b>4. CLOCK (Second Chance)</b></p>
+
+                        <div class="card-body">
+                            <pre class="card-text card-code">
+        #include &#60;stdio.h&#62;
+        #include &#60;stdlib.h&#62;
+        #include &#60;stdbool.h>&#62;
+        
+        #define NUM_FRAMES 4   // Número de frames (páginas físicas en memoria)
+        #define NUM_PAGES 10   // Número total de páginas virtuales
+        
+        // Estructura para un frame de página en memoria física
+        typedef struct Frame {
+            int page;           // Número de página almacenada en el frame (valor -1 si está vacío)
+            bool valid;         // Indica si el frame está ocupado (true) o vacío (false)
+            struct Frame *prev; // Puntero al frame previo (para lista doblemente enlazada)
+            struct Frame *next; // Puntero al frame siguiente (para lista doblemente enlazada)
+        } Frame;
+        
+        // Estructura para la lista de frames en memoria física
+        typedef struct FrameList {
+            int numFrames;      // Número de frames actualmente ocupados
+            Frame *head;        // Puntero al primer frame de la lista
+            Frame *tail;        // Puntero al último frame de la lista
+        } FrameList;
+        
+        // Función para crear un nuevo frame
+        Frame* createFrame() {
+            Frame *frame = (Frame *)malloc(sizeof(Frame));
+            if (frame != NULL) {
+                frame->page = -1;   // Inicialmente no hay página asignada
+                frame->valid = false;
+                frame->prev = NULL;
+                frame->next = NULL;
+            }
+            return frame;
+        }
+        
+        // Función para inicializar la lista de frames en memoria física
+        FrameList* createFrameList() {
+            FrameList *frameList = (FrameList *)malloc(sizeof(FrameList));
+            if (frameList != NULL) {
+                frameList->numFrames = 0;
+                frameList->head = NULL;
+                frameList->tail = NULL;
+            }
+            return frameList;
+        }
+        
+        // Función para insertar un frame al frente de la lista (más recientemente usado)
+        void insertFrame(FrameList *frameList, Frame *frame) {
+            if (frameList->head == NULL) {
+                // Lista vacía
+                frameList->head = frame;
+                frameList->tail = frame;
+            } else {
+                // Insertar al frente de la lista
+                frame->next = frameList->head;
+                frameList->head->prev = frame;
+                frameList->head = frame;
+            }
+            frameList->numFrames++;
+        }
+        
+        // Función para eliminar un frame de la lista (menos recientemente usado)
+        void removeFrame(FrameList *frameList, Frame *frame) {
+            if (frame->prev != NULL) {
+                frame->prev->next = frame->next;
+            } else {
+                frameList->head = frame->next;
+            }
+            if (frame->next != NULL) {
+                frame->next->prev = frame->prev;
+            } else {
+                frameList->tail = frame->prev;
+            }
+            frameList->numFrames--;
+            free(frame);
+        }
+        
+        // Función para buscar un frame específico por número de página
+        Frame* findFrame(FrameList *frameList, int page) {
+            Frame *current = frameList->head;
+            while (current != NULL) {
+                if (current->page == page) {
+                    return current;
+                }
+                current = current->next;
+            }
+            return NULL;
+        }
+        
+        // Función para simular la carga de una página a memoria física utilizando Optimal
+        void loadPage(FrameList *frameList, int page, int futureAccess[]) {
+            Frame *frame = createFrame();
+            frame->page = page;
+            frame->valid = true;
+        
+            // Si la lista de frames ya está llena, determinar la página óptima a reemplazar
+            if (frameList->numFrames == NUM_FRAMES) {
+                Frame *optimalFrame = NULL;
+                int farthest = -1;
+        
+                // Buscar el frame que contiene la página que no será utilizada por más tiempo
+                for (int i = 0; i &#60; NUM_FRAMES; ++i) {
+                    Frame *current = frameList->head;
+                    int j = 0;
+                    while (current != NULL && current->page != -1 && current->page != futureAccess[j]) {
+                        current = current->next;
+                        ++j;
+                    }
+                    if (current == NULL || current->page == -1) {
+                        optimalFrame = current;
+                        break;
+                    }
+                    if (j > farthest) {
+                        farthest = j;
+                        optimalFrame = current;
+                    }
+                }
+        
+                // Remover el frame óptimo encontrado
+                if (optimalFrame != NULL) {
+                    removeFrame(frameList, optimalFrame);
+                }
+            }
+        
+            // Insertar el nuevo frame en la lista de frames
+            insertFrame(frameList, frame);
+        }
+        
+        // Función para imprimir el estado actual de la lista de frames (solo para fines de depuración)
+        void printFrameList(FrameList *frameList) {
+            printf("Estado actual de la lista de frames:\n");
+            Frame *current = frameList->head;
+            while (current != NULL) {
+                printf("Página: %d, ", current->page);
+                if (current->valid) {
+                    printf("Estado: Ocupado\n");
+                } else {
+                    printf("Estado: Vacío\n");
+                }
+                current = current->next;
+            }
+            printf("\n");
+        }
+        
+        int main() {
+            FrameList *frameList = createFrameList();
+        
+            // Simular el orden de accesos futuro a las páginas (simplificado)
+            int futureAccess[NUM_PAGES] = {1, 2, 3, 4, 5, 1, 2, 1, 3, 4};
+        
+            // Simular la carga de páginas a memoria física utilizando el algoritmo Optimal
+            for (int i = 0; i &#60; NUM_PAGES; ++i) {
+                loadPage(frameList, futureAccess[i], futureAccess + i + 1);
+                printFrameList(frameList);
+            }
+        
+            // Liberar la memoria utilizada por la lista de frames
+            free(frameList);
+        
+            return 0;
+        }
+                            </pre>
+                        </div>
+    
+                        <p class="text-center">
+                            <b>Código 6. Ejemplo de algoritmo OPR.</b>
+                        </p>
+    
+                        <p class="card-text">
+                            Este código implementa una versión simplificada del algoritmo Optimal para demostrar cómo funciona el reemplazo de
+                            páginas en un sistema operativo basado en el conocimiento del acceso futuro a las páginas. En un entorno real,
+                            implementar el algoritmo Optimal requiere predecir o tener conocimiento avanzado del patrón de acceso futuro, lo cual
+                            puede ser complejo de lograr.
+                        </p>
+
+
+                    <p class="card-text"><b>4. <i>CLOCK</i> (Segunda Oportunidad)</b></p>
+
                     <p class="card-text">Es una versión mejorada de FIFO. Cada página tiene un bit que indica si ha sido
                         usada recientemente. Si una página tiene el bit en 1, se le da una "segunda oportunidad" y se
                         pone el bit en 0 en lugar de ser reemplazada.</p>
+
                     <p class="card-text"><b>Ejemplo</b>: Si las páginas [A, B, C, D] están en la memoria y sus bits de
                         uso son [1, 0, 1, 0], y se necesita cargar una nueva página E, se comenzará desde A. Si A tiene
                         su bit en 1, se pone en 0 y se pasa a la siguiente página, B, que será reemplazada si su bit es
                         0.</p>
-                    <p class="card-text"><b>5. NRU (Not Recently Used)</b></p>
+                    <p class="card-text"><b>5. NRU (Recientemente No Utilizada)</b></p>
+
                     <p class="card-text">Este algoritmo clasifica las páginas en cuatro categorías según sus bits de
                         referencia y modificación. Luego, reemplaza una página de la categoría más baja disponible.</p>
+
                     <p class="card-text"><b>Categorías</b>:</p>
                     <ol>
                         <li>
@@ -110,12 +613,23 @@
                     <p class="card-text"><b>Ejemplo</b>: Si las páginas [A, B, C, D] tienen bits de referencia y
                         modificación como [0, 0], [1, 0], [0, 1], [1, 1] respectivamente, y se necesita cargar una nueva
                         página E, se reemplazará A, ya que está en la categoría 1.</p>
-                    <p class="card-text"><b>6. LFU (Least Frequently Used)</b></p>
+
+                    <p class="card-text"><b>6. LFU (Frecuentemente Menos Utilizado)</b></p>
+
                     <p class="card-text">Este algoritmo reemplaza la página que ha sido usada con menos frecuencia.</p>
+
                     <p class="card-text">Toma en cuenta el uso histórico de las páginas, lo que puede ser efectivo en
                         ciertos casos</p>
+
                     <p class="card-text"><b>Ejemplo</b>: Si las páginas [A, B, C, D] tienen conteos de uso [3, 1, 2, 4],
                         y se necesita cargar una nueva página E, se reemplazará B, la página con el menor conteo de uso.
+                    </p>
+
+                    <p class="card-text">
+                        Es necesario mencionar que, algunos de los códigos presentados anteriormente son ejemplos que simulan
+                        el funcionamiento de los algoritmos, por ende, no son implementaciones directas para un sistema operativo dada su complejidad,
+                        mientras que, aquellos que no tienen ejemplo, se debe a que es necesario
+                        implementar el código de un sistema operativo en <i>hardware</i>.
                     </p>
 
                     <ul class="pagination justify-content-end">
