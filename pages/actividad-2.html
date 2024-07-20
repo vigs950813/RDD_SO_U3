@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Actividad 2</title>
+    <title>Actividad 1.2: Cuestionario de opción múltiple de administración de almacenamiento, memoria de
+        intercambio, manejo de memoria con mapa de bits y con listas ligadas</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap CSS-->
@@ -19,7 +20,7 @@
 <link href="../css/navbar.css" rel="stylesheet" />
 <link href="../css/offcanvas.css" rel="stylesheet" />
 <link href="../css/card.css" rel="stylesheet" />
-<link href="../css/table.css" rel="stylesheet" />
+<link href="../css/acordeon.css" rel="stylesheet" />
 <link href="../css/pagination.css" rel="stylesheet" />
 <link href="../css/footer.css" rel="stylesheet" />
 
@@ -31,23 +32,6 @@
 <script src="../js/offcanvasLoader.js"></script>
 <script src="../js/footerPagesLoader.js"></script>
 <!-- Local JS-->
-<style>
-    .draggable-item {
-        cursor: grab;
-        font-weight: bold;
-    }
-
-    .draggable-item:hover{
-        font-size: 15px;
-        color: #616161;
-    }
-
-    .droppable-area {
-        min-height: 50px;
-        margin-bottom: 10px;
-        background-color: #D5D5D5;
-    }
-</style>
 </head>
 
 <body>
@@ -69,7 +53,9 @@
     <main>
         <section>
             <div class="card">
-                <h3 class="card-header">Actividad 2.- Cuestionario de Modelo Multhilo</h3>
+                <h3 class="card-header">Actividad 2: Cuestionario de administración de almacenamiento, memoria de
+                    intercambio, manejo de memoria con mapa de bits y con listas ligadas
+                </h3>
                 <div class="card-body">
 
                     <p class="card-text">
@@ -78,15 +64,13 @@
 
                     <ol class="card-text">
                         <li>
-                            Correlaciona los conceptos con las definiciones, coloca en el recuadro sombreado, el número de
-                            concepto correspondiente.
-                        </li>
-                        <li>
-                            Una vez que hayas terminado de seleccionar tus respuestas, puedes verificarlas dando clic en el
-                            botón Validar respuestas.
+                            En el siguiente cuestionario, elige la opción de respuesta que consideres es la correcta.
                             <br>
-                            Puede reiniciar las posiciones de los items arrastrables dando clic en el botón Resetear
-                            posiciones.
+                            Una vez que hayas terminado de seleccionar tus respuestas, puedes verificarlas dando clic en
+                            el botón Validar
+                            respuestas.
+                            <br>
+                            Si deseas quitar las marcas de tus respuestas, puedes dar clic en el botón Reiniciar marcas.
                         </li>
                         <li>
                             Puede repetir la actividad las veces que considere necesario realizarla.
@@ -95,153 +79,159 @@
 
                     <p class="card-text">
                         Es importante que sepas que esta actividad no tiene calificación, su propósito es reforzar tus
-                        conocimientos relacionados con este tema y que puedas evaluar aprendizajes adquiridos.
+                        conocimientos
+                        relacionados con este tema y que puedas evaluar los aprendizajes adquiridos.
                     </p>
 
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">1. Se encarga de asignar y liberar espacio en el
+                            almacenamiento para los archivos y datos del sistema y de los usuarios. Esto incluye
+                            técnicas como el particionamiento del disco, la gestión de archivos y la administración del
+                            espacio libre.
+                        </h2>
+                        <input type="radio" name="q1" value="a"> a) Sistemas de Archivos.<br>
+                        <input type="radio" name="q1" value="b"> b) Gestión de Cuotas.<br>
+                        <input type="radio" name="q1" value="c"> c) Administración de Espacio.<br>
+                    </div>
+                    <br>
 
-                    <div class="container">
-                        <!-- Fila -->
-                        <div class="row">
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">2. Define la estructura y el método para
+                            almacenar y organizar archivos en dispositivos de almacenamiento. Los sistemas de archivos
+                            pueden variar en complejidad y características, desde simples sistemas como FAT (Tabla de
+                            Asignación de Archivos) hasta sistemas avanzados como NTFS (Sistema de Archivos de Nueva
+                            Tecnología) en Windows o ext4 (Sistema de archivos extendido 4) en sistemas Linux.</h2>
+                        <input type="radio" name="q2" value="a"> a) Sistemas de Archivos.<br>
+                        <input type="radio" name="q2" value="b"> b) Gestión de Cuotas.<br>
+                        <input type="radio" name="q2" value="c"> c) Administración de Espacio.<br>
+                        <!-- <input type="radio" name="q2" value="d"> d) Creación de interfaces de usuario. <br> -->
+                        <span id="feedback-q2"></span>
+                    </div>
+                    <br>
 
-                            <div class="col">
-                                <b>Concepto</b>
-                            </div>
-                            <div class="col">
-                                <b></b>
-                            </div>
-                            <div class="col">
-                                <b>Definición</b>
-                            </div>
-                        </div>
-                        <!-- Fila -->
-                        <!-- Fila -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item1">1.
-                                    Modelo de hilos a nivel usuario.</div>
-                            </div>
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">3. Permite establecer límites en el espacio de
+                            almacenamiento que los usuarios o grupos de usuarios pueden utilizar. Esto ayuda a prevenir
+                            el uso excesivo de recursos y garantiza una distribución equitativa del almacenamiento entre
+                            los usuarios.
+                        </h2>
+                        <input type="radio" name="q3" value="a"> a) Sistemas de Archivos.<br>
+                        <input type="radio" name="q3" value="b"> b) Gestión de Cuotas.<br>
+                        <input type="radio" name="q3" value="c"> c) Administración de Espacio.<br>
+                        <!-- <input type="radio" name="q3" value="d"> d) Exokernel.<br> -->
+                        <span id="feedback-q3"></span>
+                    </div>
+                    <br>
 
-                            <div class="col droppable-area" id="respuesta1" ondrop="drop(event)"
-                                ondragover="allowDrop(event)"></div>
-                            <div class="col" id="pregunta1">
-                                Proporcionan cálculos y operaciones de forma intensiva.
-                            </div>
-
-                        </div>
-                        <!-- Fila -->
-                        <!-- Fila -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item2">2.
-                                    Modelo de hilos a nivel de kernel.</div>
-                            </div>
-
-                            <div class="col droppable-area" id="respuesta2" ondrop="drop(event)"
-                                ondragover="allowDrop(event)"></div>
-                            <div class="col" id="pregunta2">
-                                Se caracterizan por realizar operaciones de E/S intensivas.
-                            </div>
-
-                        </div>
-                        <!-- Fila -->
-                        <!-- Fila -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item3">3.
-                                    Hilos independientes.
-                                </div>
-                            </div>
-
-                            <div class="col droppable-area" id="respuesta3" ondrop="drop(event)"
-                                ondragover="allowDrop(event)">
-                            </div>
-                            <div class="col" id="pregunta3">
-                                Ofrecen un equilibrio entre eficiencia y flexibilidad.
-                            </div>
-
-                        </div>
-                        <!-- Fila -->
-                        <!-- Fila -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item4">4.
-                                    Hilos ligeros.</div>
-                            </div>
-
-                            <div class="col droppable-area" id="respuesta4" ondrop="drop(event)"
-                                ondragover="allowDrop(event)">
-                            </div>
-                            <div class="col" id="pregunta4">
-                                En este modo son más complejos de implementar, añadiendo la sobrecarga y forzosa
-                                sincronización para su funcionamiento.
-                            </div>
-
-                        </div>
-                        <!-- Fila -->
-                        <!-- Fila -->
-                        <div class="row">
-                            <div class="col">
-                                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item5">5.
-                                    Hilos pesados.</div>
-                            </div>
-
-                            <div class="col droppable-area" id="respuesta5" ondrop="drop(event)"
-                                ondragover="allowDrop(event)">
-                            </div>
-                            <div class="col" id="pregunta5">
-                                Las operaciones de creación, planificación y sincronización se realizan en este modo.
-                            </div>
-
-                        </div>
-                        <!-- Fila -->
-                        <!-- Fila -->
-                        <!-- <div class="row">
-                            <div class="col">
-                                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item6">6.
-                                    Plataforma de gestión del aprendizaje de código abierto que facilita la creación de
-                                    cursos en línea, evaluaciones y la interacción entre estudiantes y profesores</div>
-                            </div>
-
-                            <div class="col droppable-area" id="respuesta6" ondrop="drop(event)"
-                                ondragover="allowDrop(event)">
-                            </div>
-                            <div class="col" id="pregunta6">
-                                Schoology
-                            </div>
-
-                        </div> -->
-                        <!-- Fila -->
-                        <!-- Fila -->
-                        <!-- <div class="row">
-                            <div class="col">
-                                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item7">7.
-                                    Plataforma de aprendizaje en línea que integra funciones de gestión del aprendizaje
-                                    y red social educativa, permitiendo la creación de cursos y la colaboración en línea
-                                </div>
-                            </div>
-
-                            <div class="col droppable-area" id="respuesta7" ondrop="drop(event)"
-                                ondragover="allowDrop(event)">
-                            </div>
-                            <div class="col" id="pregunta7">
-                                Moodle
-                            </div>
-
-                        </div> -->
-                        <!-- Fila -->
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">4. Los sistemas operativos utilizan la memoria
+                            de intercambio y sus ventajas son:</h2>
+                        <input type="radio" name="q4" value="a"> a) Puede ralentizar el sistema si hay un intercambio
+                        excesivo de datos entre la RAM y el almacenamiento secundario.<br>
+                        <input type="radio" name="q4" value="b"> b) Aumenta la carga en el disco duro o la unidad de
+                        estado sólido, lo que puede reducir su vida útil.<br>
+                        <input type="radio" name="q4" value="c"> c) Permite ejecutar aplicaciones que requieren más
+                        memoria que la disponible físicamente, ayuda a evitar que los programas se cierren
+                        inesperadamente debido a la falta de memoria y es multitarea que ejecutan simultáneamente.
                         <br>
-                        <!-- Fila -->
+                        <!-- <input type="radio" name="q4" value="d"> d) Mayor modularidad y seguridad. <br> -->
+                        <span id="feedback-q4"></span>
+                    </div>
+                    <br>
+
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">5. Los sistemas operativos utilizan la memoria
+                            de intercambio y sus ventajas son:</h2>
+                        <input type="radio" name="q5" value="a"> a) Puede ralentizar el sistema si hay un intercambio
+                        excesivo de datos entre la RAM y el almacenamiento secundario y aumenta la carga en el disco
+                        duro o la unidad de estado sólido, lo que puede reducir su vida útil.<br>
+                        <input type="radio" name="q5" value="b"> b) Permite ejecutar aplicaciones que requieren más
+                        memoria que la disponible físicamente, ayuda a evitar que los programas se cierren
+                        inesperadamente debido a la falta de memoria y es multitarea que ejecutan simultáneamente.<br>
+                        <input type="radio" name="q5" value="c"> c) Permite establecer límites en el espacio de
+                        almacenamiento que los usuarios o grupos de usuarios pueden utilizar.<br>
+                        <!-- <input type="radio" name="q5" value="d"> d) Controlador de dispositivos.<br> -->
+                        <span id="feedback-q5"></span>
+                    </div>
+                    <br>
+
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">6. Los sistemas operativos utilizan el manejo de
+                            memoria con mapas de bits y sus características son:</h2>
+                        <input type="radio" name="q6" value="a"> a) Bloques de memoria están asignados y cuáles están
+                        libres, el uso de un mapa de bits, una estructura de datos que representa cada bloque de memoria
+                        como un bit en una secuencia binaria y es esencial.<br>
+                        <input type="radio" name="q6" value="b"> b) Permite ejecutar aplicaciones que requieren más
+                        memoria que la disponible físicamente, ayuda a evitar que los programas se cierren
+                        inesperadamente debido a la falta de memoria y es multitarea que ejecutan simultáneamente.<br>
+                        <input type="radio" name="q6" value="c"> c) Permite establecer límites en el espacio de
+                        almacenamiento que los usuarios o grupos de usuarios pueden utilizar.<br>
+                        <span id="feedback-q6"></span>
+                    </div>
+                    <br>
+
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">7. El manejo de memoria con listas ligadas es...
+                        </h2>
+                        <input type="radio" name="q7" value="a"> a) Bloques de memoria están asignados y cuáles están
+                        libres, el uso de un mapa de bits, una estructura de datos que representa cada bloque de memoria
+                        como un bit en una secuencia binaria y es esencial.
+                        .<br>
+                        <input type="radio" name="q7" value="b"> b) Un método para gestionar la memoria constante que
+                        se asigna a los procesos de un sistema operativo..<br>
+                        <input type="radio" name="q7" value="c"> c) Puede ralentizar el sistema si hay un intercambio
+                        excesivo de datos entre la RAM y el almacenamiento secundario.
+                        .<br>
+                        <!-- <input type="radio" name="q7" value="d"> d) Máquina virtual.<br> -->
+                        <span id="feedback-q7"></span>
+                    </div>
+                    <br>
+
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">8. El manejo de memoria con listas tiene como
+                            características:</h2>
+                        <input type="radio" name="q8" value="a"> a) Una lista de bloques de memoria asignados, cada uno
+                        de los cuales tiene información sobre su tamaño y posición, además de un enlace al siguiente
+                        bloque en la lista.<br>
+                        <input type="radio" name="q8" value="b"> b) Bloques de memoria están asignados y cuáles están
+                        libres, el uso de un mapa de bits, una estructura de datos que representa cada bloque de memoria
+                        como un bit en una secuencia binaria y es esencial.<br>
+                        <input type="radio" name="q8" value="c"> c) Permite ejecutar aplicaciones que requieren más
+                        memoria que la disponible físicamente, ayuda a evitar que los programas se cierren
+                        inesperadamente debido a la falta de memoria y es multitarea que ejecutan simultáneamente.<br>
+                        <!-- <input type="radio" name="q8" value="d"> d) Controla la interfaz gráfica de usuario.<br> -->
+                        <span id="feedback-q8"></span>
+                    </div>
+                    <br>
+
+                    <div class="question">
+                        <h2 style="font-size: 17px; font-weight: bold;">9. cuando el sistema operativo crea un bloque de
+                            memoria y lo incluye en la lista ligada dentro de un proceso necesita memoria y genera:</h2>
+                        <input type="radio" name="q9" value="a"> a) Una lista de bloques de memoria asignados, cada uno
+                        de los cuales tiene información sobre su tamaño y posición, además de un enlace al siguiente
+                        bloque en la lista..<br>
+                        <input type="radio" name="q9" value="b"> b) El bloque se elimina de la lista por el sistema
+                        operativo cuando se libera memoria, esto facilita el manejo de la memoria fragmentada y permite
+                        un acceso rápido a los bloques de memoria asignados.<br>
+                        <input type="radio" name="q9" value="c"> c) Puede ralentizar el sistema si hay un intercambio
+                        excesivo de datos entre la RAM y el almacenamiento secundario.<br>
+                        <!-- <input type="radio" name="q8" value="d"> d) Controla la interfaz gráfica de usuario.<br> -->
+                        <span id="feedback-q8"></span>
+                    </div>
+                    <br>
+
+                    <div class="container text-center">
+
                         <div class="row" style="border-color: transparent;">
                             <div class="col">
-                                <button type="button" onclick="validarRespuestas()" class="btn btn-primary">Validar
+                                <button type="button" onclick="checkAnswers()" class="btn btn-primary">Validar
                                     respuestas</button>
                             </div>
                             <div class="col">
-                                <a href="actividad-2.html"><button type="button" class="btn btn-primary">Resetear
-                                        posiciones</button></a>
+                                <a href="actividad-2.html"><button type="button" class="btn btn-primary">Reiniciar
+                                        marcas</button></a>
                             </div>
                         </div>
-                        <!-- Fila -->
 
                     </div>
 
@@ -249,28 +239,23 @@
 
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                            <a class="page-link" href="2-1-modelo-de-procesos.html">Anterior</a>
+                          <a class="page-link" href="../index.html">Anterior</a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="2-2-modelo-multi-hilo.html">1</a></li>
-                        <li class="page-item"><a class="page-link" href="2-2-1-bibliotecas.html">2</a></li>
-                        <li class="page-item"><a class="page-link" href="2-2-2-implementacion.html">3</a></li>
-                        <li class="page-item"><a class="page-link" href="2-2-3-hilos-modo-usuario-kernel.html">4</a></li>
-                        <li class="page-item active"><a class="page-link" href="actividad-2.html">5</a></li>
+                        <li class="page-item"><a class="page-link" href="introduccion.html">1</a></li>
+                        <li class="page-item"><a class="page-link" href="3-1-abstraccion-de-memoria.html">2</a></li>
+                        <li class="page-item"><a class="page-link" href="3-1-1-organizacion-de-la-memoria.html">3</a></li>
+                        <li class="page-item"><a class="page-link" href="3-1-2-administracion-de-almacenamiento.html">4</a></li>
+                        <li class="page-item"><a class="page-link" href="3-1-3-memoria-de-intercambio.html">5</a></li>
+                        <li class="page-item"><a class="page-link" href="3-1-4-manejo-de-memoria-con-mapa-de-bits.html">6</a></li>
+                        <li class="page-item"><a class="page-link" href="3-1-5-manejo-de-memoria-con-listas-ligadas.html">7</a></li>
+                        <li class="page-item"><a class="page-link" href="actividad-1.html">8</a></li>
+                        <li class="page-item active"><a class="page-link" href="actividad-2.html">9</a></li>
                         <li class="page-item">
-                            <a class="page-link" href="2-3-comunicacion-entre-procesos.html">Siguiente Tema</a>
+                          <a class="page-link" href="3-2-memoria-virtual.html">Siguiente Tema</a>
                         </li>
-                    </ul>
-
+                      </ul>
 
                 </div>
-
-
-
-
-
-
-
-            </div>
             </div>
 
         </section>
@@ -289,59 +274,9 @@
         crossorigin="anonymous"></script>
     <!-- Core theme JS-->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script>
-        function allowDrop(event) {
-            event.preventDefault();
-        }
+    <script src="../js/actividad-2.js">
 
-        function drag(event) {
-            event.dataTransfer.setData("text", event.target.id);
-        }
-
-        function drop(event) {
-            event.preventDefault();
-            const draggedItemId = event.dataTransfer.getData("text");
-            const draggedItem = document.getElementById(draggedItemId);
-            const dropTarget = event.target;
-
-            if (dropTarget.classList.contains("droppable-area")) {
-                dropTarget.appendChild(draggedItem);
-            }
-        }
-
-        function validarRespuestas() {
-            const respuestasCorrectas = {
-                "respuesta1": "item5",
-                "respuesta2": "item4",
-                "respuesta3": "item3",
-                "respuesta4": "item2",
-                "respuesta5": "item1",
-
-            };
-
-            let respuestasCorrectasContador = 0;
-            let respuestasIncorrectasContador = 0;
-
-            for (const respuestaId in respuestasCorrectas) {
-                const respuestaDiv = document.getElementById(respuestaId);
-                const itemDiv = respuestaDiv.querySelector(".draggable-item");
-
-                if (!itemDiv || itemDiv.id !== respuestasCorrectas[respuestaId]) {
-                    respuestasIncorrectasContador++;
-                    // Cambia el color de fondo a rojo
-                    //respuestaDiv.style.backgroundColor = "#FFC0C0"; 
-                } else {
-                    respuestasCorrectasContador++;
-                    // Cambia el color de fondo a verde
-                    //respuestaDiv.style.backgroundColor = "#C0FFC0"; 
-                }
-            }
-
-            alert("Respuestas Correctas: " + respuestasCorrectasContador + "\nRespuestas Incorrectas: " + respuestasIncorrectasContador);
-        }
     </script>
-
 
 
 </body>

@@ -5,9 +5,13 @@ function validarRespuestas() {
         q1: 'v',
         q2: 'v',
         q3: 'f',
-        q4: 'f',
+        q4: 'v',
         q5: 'v',
-        q6: 'f',
+        q6: 'v',
+        q7: 'v',
+        q8: 'v',
+        q9: 'f',
+        q10: 'v',
     };
 
     // Inicializar variables para contar respuestas correctas e incorrectas
@@ -15,7 +19,7 @@ function validarRespuestas() {
     let respuestasIncorrectasCount = 0;
 
     // Iterar sobre cada pregunta
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 10; i++) {
         const preguntaName = 'q' + i;
         const checkboxes = document.getElementsByName(preguntaName);
 
