@@ -59,7 +59,7 @@
                     <p class="card-text">
                         La segmentación pura es una técnica de gestión de memoria utilizada por los sistemas operativos
                         para dividir el espacio de direcciones de un proceso en segmentos de diferentes tamaños que
-                        pueden crecer o reducirse según las necesidades del programa. A diferencia de la paginación, que
+                        pueden crecer o reducirse según las necesidades del programa. a diferencia de la paginación, que
                         divide la memoria en páginas de tamaño fijo, la segmentación permite una partición más flexible
                         y lógica para alinearse con estructuras de programas como código, pila y datos.
                     </p>
@@ -74,7 +74,7 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                     aria-controls="panelsStayOpen-collapseOne">
-                                    Segmentos Lógicos
+                                    Segmentos lógicos
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -83,7 +83,7 @@
                                     <p class="card-text">
                                         En lugar de dividir la memoria física en bloques de tamaño fijo, la segmentación
                                         pura divide el espacio de direcciones en segmentos lógicos que corresponden a
-                                        diferentes partes del programa. Estos segmentos pueden incluir código de
+                                        diferentes partes del programa. estos segmentos pueden incluir código de
                                         programa, datos globales, pila de ejecución, etc.
                                     </p>
                                 </div>
@@ -94,7 +94,7 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                                     aria-controls="panelsStayOpen-collapseTwo">
-                                    Direcciones Segmentadas
+                                    Direcciones segmentadas
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
@@ -102,7 +102,7 @@
                                 <div class="accordion-body">
                                     <p class="card-text">
                                         Las direcciones en sistemas segmentados constan de dos partes: un número de
-                                        segmento y un desplazamiento dentro de ese segmento. Esto permite que cada
+                                        segmento y un desplazamiento dentro de ese segmento. esto permite que cada
                                         segmento se procese de forma independiente para la protección y la gestión del
                                         almacenamiento.
                                     </p>
@@ -114,7 +114,7 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                                     aria-controls="panelsStayOpen-collapseThree">
-                                    Tablas de Segmentos
+                                    Tablas de segmentos
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
@@ -122,7 +122,7 @@
                                 <div class="accordion-body">
                                     <p class="card-text">
                                         Cada proceso tiene una tabla de segmentos que contiene la base y los límites de
-                                        cada segmento. La base es la dirección inicial del segmento en la memoria física
+                                        cada segmento. la base es la dirección inicial del segmento en la memoria física
                                         y el límite define el tamaño del segmento.
                                     </p>
                                 </div>
@@ -133,7 +133,7 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
                                     aria-controls="panelsStayOpen-collapseFour">
-                                    Protección y Compartición
+                                    Protección y compartición
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
@@ -142,7 +142,7 @@
                                     <p class="card-text">
                                         La segmentación permite una protección detallada de la memoria al permitir que
                                         cada segmento tenga sus propios permisos (lectura, escritura, ejecución).
-                                        Además, facilita compartir segmentos entre procesos, como código en bibliotecas
+                                        además, facilita compartir segmentos entre procesos, como código en bibliotecas
                                         compartidas.
                                     </p>
                                 </div>
@@ -153,7 +153,7 @@
                     <br>
 
                     <p class="card-text">
-                        <b>Ventajas</b>
+                        <b>Ventajas:</b>
                     </p>
                     <p class="card-text"><b>Flexibilidad</b></p>
 
@@ -178,14 +178,14 @@
                     
                     
                     <p class="card-text">
-                        <b>Desventajas</b>
+                        <b>Desventajas:</b>
                     </p>
 
                     <p class="card-text"><b>Fragmentación</b></p>
 
                     <p class="card-text">La fragmentación interna puede ocurrir dentro de los segmentos, desperdiciando memoria.</p>
 
-                    <p class="card-text"><b>Complejidad de Implementación</b></p>
+                    <p class="card-text"><b>Complejidad de implementación</b></p>
 
                     <p class="card-text">Requiere soporte complejo por parte del sistema operativo para manejar tablas de segmentos y
                         asignación de memoria.</p>
