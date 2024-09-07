@@ -58,54 +58,58 @@
 
                     <p class="card-text">Para poder traducir las direcciones de memoria virtual de un proceso a
                         direcciones físicas, es necesario contar con una estructura de datos que contenga esa relación.
-                        A esto se le conoce como tablas de páginas.</p>
+                        a esto se le conoce como tablas de páginas.</p>
                     <p class="card-text">Permiten al sistema operativo gestionar la memoria de manera eficiente,
                         rastreando qué páginas están en la memoria física y cuáles están en el disco.</p>
                     <p class="card-text">Están compuestas de los índices de página y el desplazamiento (la parte baja de
                         la dirección virtual indica el desplazamiento dentro de la página).</p>
-                    <p class="card-text"><b>Ejemplo de Traducción de Dirección usando una Tabla de Páginas Simple</b>
+                    <p class="card-text"><b>Ejemplo de traducción de dirección usando una tabla de páginas simple</b>
                     </p>
                     <p class="card-text">Imagina un sistema con las siguientes características:</p>
 
                     <ul>
                         <li>
-                            <p class="card-text">Tamaño de página: 4 KB</p>
+                            <p class="card-text">Tamaño de página: 4 <i>KB</i> (<i>KiloBytes</i>)</p>
                         </li>
                         <li>
-                            <p class="card-text">Tamaño de la dirección virtual: 32 bits (4 GB de espacio de direcciones
-                                virtuales)</p>
+                            <p class="card-text">Tamaño de la dirección virtual: 32 <i>bits</i> 
+                                <!-- (4 GB de espacio de direcciones
+                                virtuales) -->
+                            </p>
                         </li>
                         <li>
-                            <p class="card-text">Tamaño de la dirección física: 20 bits (1 MB de espacio de direcciones
-                                físicas)</p>
+                            <p class="card-text">Tamaño de la dirección física: 20 <i>bits</i> 
+                                <!-- (1 MB de espacio de direcciones
+                                físicas) -->
+                            </p>
                         </li>
                     </ul>
                     <p class="card-text">
-                        <b>Paso a Paso</b>
+                        <b>Paso a paso</b>
                     </p>
                     <ol>
                         <li>
-                            <p class="card-text"><b>Dirección Virtual</b>: 0x12345ABC</p>
+                            <p class="card-text"><b>Dirección virtual</b>: 0x12345ABC</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Índice de Página</b>: Los bits más significativos de la dirección
-                                virtual se utilizan como índice. Supongamos que los primeros 20 bits (0x12345) son el
+                            <p class="card-text"><b>Índice de página</b>: Los <i>bits</i> más significativos de la dirección
+                                virtual se utilizan como índice. supongamos que los primeros 20 <i>bits</i> (0x12345) son el
                                 índice de página.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Desplazamiento dentro de la Página</b>: Los 12 bits menos
+                            <p class="card-text"><b>Desplazamiento dentro de la página</b>: Los 12 <i>bits</i> menos
                                 significativos (0xABC) son el desplazamiento dentro de la página.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Consulta a la Tabla de Páginas</b>: Usamos el índice de página
+                            <p class="card-text"><b>Consulta a la tabla de páginas</b>: Usamos el índice de página
                                 (0x12345) para buscar en la tabla de páginas.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Entrada en la Tabla de Páginas</b>: La entrada correspondiente nos
+                            <p class="card-text"><b>Entrada en la tabla de páginas</b>: La entrada correspondiente nos
                                 da la dirección del marco de página físico. Supongamos que la entrada es 0x1F.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Dirección Física</b>: La dirección física completa se forma
+                            <p class="card-text"><b>Dirección física</b>: La dirección física completa se forma
                                 concatenando el marco de página (0x1F) con el desplazamiento dentro de la página
                                 (0xABC), dando 0x1FABC.</p>
                         </li>

@@ -58,15 +58,15 @@
 
                     <p class="card-text">
                         Como vimos anteriormente, para poder implementar la memoria virtual, se hace uso de "páginas".
-                        Se divide la memoria virtual y física en bloques de tamaño fijo llamados páginas y marcos de
+                        se divide la memoria virtual y física en bloques de tamaño fijo llamados páginas y marcos de
                         página, respectivamente.
                     </p>
 
                     <p class="card-text">La pagina corresponde con una zona de memoria contigua de un determinado
-                        tamaño. Por motivos de eficiencia en la traducción, este tamaño debe ser potencia de 2.</p>
-                    <p class="card-text">El mapa de memoria de cada proceso se considera dividido en páginas. A su vez,
+                        tamaño. por motivos de eficiencia en la traducción, este tamaño debe ser potencia de 2.</p>
+                    <p class="card-text">El mapa de memoria de cada proceso se considera dividido en páginas. a su vez,
                         la memoria principal del sistema se considera dividida en zonas del mismo tamaño que se
-                        denominan marcos de página. Un marco de página contendrá en un determinado instante una página
+                        denominan marcos de página. un marco de página contendrá en un determinado instante una página
                         de memoria de proceso.</p>
 
                     <p class="text-center">
@@ -83,66 +83,66 @@
 
                     <ol>
                         <li>
-                            <p class="card-text"><b>División de la Memoria</b>: La memoria virtual y la memoria física
-                                se dividen en páginas y marcos de página de igual tamaño. Esto facilita la gestión y
+                            <p class="card-text"><b>División de la memoria</b>: La memoria virtual y la memoria física
+                                se dividen en páginas y marcos de página de igual tamaño. esto facilita la gestión y
                                 asignación de memoria.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Asignación de Páginas</b>: Cuando un programa necesita memoria, el
-                                sistema operativo asigna páginas virtuales al programa. Estas páginas se mapean a marcos
+                            <p class="card-text"><b>Asignación de páginas</b>: Cuando un programa necesita memoria, el
+                                sistema operativo asigna páginas virtuales al programa. estas páginas se mapean a marcos
                                 de página en la memoria física.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Traducción de Direcciones</b>: Cuando el programa accede a una
-                                dirección de memoria, la unidad de gestión de memoria (MMU) traduce la dirección virtual
+                            <p class="card-text"><b>Traducción de direcciones</b>: Cuando el programa accede a una
+                                dirección de memoria, la <i>MMU</i> (Unidad de Gestión de Memoria) traduce la dirección virtual
                                 a una dirección física utilizando la tabla de páginas.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Fallas de Página</b>: Si el programa intenta acceder a una página
+                            <p class="card-text"><b>Fallas de página</b>: Si el programa intenta acceder a una página
                                 que no está en la memoria física (porque ha sido paginada a disco), se produce una falla
-                                de página. El sistema operativo debe entonces cargar la página requerida desde el disco
+                                de página. el sistema operativo debe entonces cargar la página requerida desde el disco
                                 a un marco de página en la memoria física.</p>
                         </li>
                     </ol>
 
-                    <p class="card-text"><b>Ejemplo de Paginación</b></p>
+                    <p class="card-text"><b>Ejemplo de paginación</b></p>
                     <p class="card-text">Imagina un sistema con la siguiente configuración:</p>
                     <ul>
                         <li>
-                            <p class="card-text">Tamaño de página: 4 KB</p>
+                            <p class="card-text">Tamaño de página: 4 <i>KB</i> (<i>KiloBytes</i>)</p>
                         </li>
                         <li>
-                            <p class="card-text">Memoria física: 16 KB (4 marcos de página)</p>
+                            <p class="card-text">Memoria física: 16 <i>KB</i> (<i>KiloBytes</i>) (4 marcos de página)</p>
                         </li>
                         <li>
-                            <p class="card-text">Memoria virtual: 64 KB (16 páginas)</p>
+                            <p class="card-text">Memoria virtual: 64 <i>KB</i> (<i>KiloBytes</i>) (16 páginas)</p>
                         </li>
                     </ul>
                     <p class="card-text"><b>Proceso</b></p>
                     <ol>
                         <li>
-                            <p class="card-text"><b>Asignación de Páginas</b>: Un programa solicita 12 KB de memoria,
-                                que se dividen en 3 páginas de 4 KB cada una.</p>
+                            <p class="card-text"><b>Asignación de páginas</b>: Un programa solicita 12 <i>KB</i> (<i>KiloBytes</i>) de memoria,
+                                que se dividen en 3 páginas de 4 <i>KB</i> (<i>KiloBytes</i>) cada una.</p>
                         </li>
                         <li>
                             <p class="card-text"><b>Mapeo (traducción)</b>: Estas 3 páginas se mapean a 3 de los 4
                                 marcos disponibles en la memoria física.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Acceso a Memoria</b>: Cuando el programa accede a una dirección de
-                                memoria, la MMU traduce la dirección virtual a una dirección física utilizando la tabla
+                            <p class="card-text"><b>Acceso a memoria</b>: Cuando el programa accede a una dirección de
+                                memoria, la <i>MMU</i> (Unidad de Gestión de Memoria) traduce la dirección virtual a una dirección física utilizando la tabla
                                 de páginas.</p>
                         </li>
                         <li>
-                            <p class="card-text"><b>Falla de Página</b>: Si el programa intenta acceder a una página que
+                            <p class="card-text"><b>Falla de página</b>: Si el programa intenta acceder a una página que
                                 no está en la memoria física, el sistema operativo carga la página requerida desde el
                                 disco a la memoria física.</p>
                         </li>
                     </ol>
                     <p class="card-text">Un aspecto importante en el rendimiento de un sistema de paginación es el
-                        tamaño de la página. Evidentemente, su tamaño debe ser potencia de 2 y, dado que va a servir de
-                        base memoria virtual, múltiplo del tamaño del bloque de disco. El tamaño típico puede estar
-                        entre 2KB y 16 KB.</p>
+                        tamaño de la página. evidentemente, su tamaño debe ser potencia de 2 y, dado que va a servir de
+                        base memoria virtual, múltiplo del tamaño del bloque de disco. el tamaño típico puede estar
+                        entre 2 <i>KB</i> (<i>KiloBytes</i>) y 16 <i>KB</i> (<i>KiloBytes</i>).</p>
 
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
