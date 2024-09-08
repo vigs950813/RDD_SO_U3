@@ -60,7 +60,7 @@
                         la <a href="glosario.html" target="_blank"><i>RAM</i></a> (Memoria de Acceso Aleatorio) debe ser reemplazada cuando una nueva página necesita ser cargada y no hay
                         suficiente espacio disponible. dentro de los más comunes están:</p>
 
-                    <p class="card-text"><b>1. <a href="glosario.html" target="_blank"><i>First-In, First-Out</i></a> (Primero en entrar, primero en salir)</b></p>
+                    <p class="card-text"><b>1. <i>First-In, First-Out</i> (Primero en entrar, primero en salir)</b></p>
 
                     <p class="card-text">Reemplaza la página que ha estado en la memoria por más tiempo.&nbsp;</p>
 
@@ -221,16 +221,16 @@
                         </p>
     
                         <p class="card-text">
-                            Este código muestra cómo adaptar el algoritmo <a href="glosario.html" target="_blank"><i>FIFO</i></a> (Primero en entrar, primero en salir) para simular la gestión de memoria física en un sistema
+                            Este código muestra cómo adaptar el algoritmo <i>FIFO</i> (Primero en entrar, primero en salir) para simular la gestión de memoria física en un sistema
                             operativo, donde se utilizan frames para almacenar páginas de memoria.
                         </p>
 
-                    <p class="card-text"><b>2. <a href="glosario.html" target="_blank"><i>LRU</i></a> (Menos Recientemente Utilizado)</b></p>
+                    <p class="card-text"><b>2. <i>LRU</i> (Menos Recientemente Utilizado)</b></p>
 
                     <p class="card-text">Este algoritmo reemplaza la página que no ha sido usada por el mayor período de
                         tiempo.</p>
 
-                    <p class="card-text">Suele ser más eficiente que <a href="glosario.html" target="_blank"><i>FIFO</i></a> (Primero en entrar, primero en salir) porque considera el uso reciente de las
+                    <p class="card-text">Suele ser más eficiente que <i>FIFO</i> (Primero en entrar, primero en salir) porque considera el uso reciente de las
                         páginas.</p>
 
                     <p class="card-text">Requiere mantener un registro del orden de acceso de las páginas.</p>
@@ -389,11 +389,11 @@
                         </p>
     
                         <p class="card-text">
-                            Este código muestra cómo adaptar el algoritmo <a href="glosario.html" target="_blank"><i>LRU</i></a> (Menos Recientemente Utilizado) para simular la gestión de memoria física en un sistema
+                            Este código muestra cómo adaptar el algoritmo <i>LRU</i> (Menos Recientemente Utilizado) para simular la gestión de memoria física en un sistema
                             operativo, donde se utilizan <i>frames</i> (marcos) para almacenar páginas de memoria.
                         </p>
 
-                    <p class="card-text"><b>3. <a href="glosario.html" target="_blank"><i>OPR</i></a> (Reemplazo de Página Óptima)</b></p>
+                    <p class="card-text"><b>3. <i>OPR</i> (Reemplazo de Página Óptima)</b></p>
 
                     <p class="card-text">Aqui se reemplaza la página que no será usada por el período de tiempo más
                         largo en el futuro. en cuestión de rendimiento, es el algoritmo perfecto, pero no se puede
@@ -582,7 +582,7 @@
 
                     <p class="card-text"><b>4. <i>CLOCK</i> (Segunda Oportunidad)</b></p>
 
-                    <p class="card-text">Es una versión mejorada de <a href="glosario.html" target="_blank"><i>FIFO</i></a> (Primero en entrar, primero en salir). Cada página tiene un bit que indica si ha sido
+                    <p class="card-text">Es una versión mejorada de <i>FIFO</i> (Primero en entrar, primero en salir). Cada página tiene un bit que indica si ha sido
                         usada recientemente. si una página tiene el <a href="glosario.html" target="_blank"><i>bit</i></a> en 1, se le da una "segunda oportunidad" y se
                         pone el <a href="glosario.html" target="_blank"><i>bit</i></a> en 0 en lugar de ser reemplazada.</p>
 
@@ -590,7 +590,7 @@
                         uso son [1, 0, 1, 0], y se necesita cargar una nueva página E, se comenzará desde A. Si A tiene
                         su <a href="glosario.html" target="_blank"><i>bit</i></a> en 1, se pone en 0 y se pasa a la siguiente página, B, que será reemplazada si su <a href="glosario.html" target="_blank"><i>bit</i></a> es
                         0.</p>
-                    <p class="card-text"><b>5. <a href="glosario.html" target="_blank"><i>NRU</i></a> (Recientemente No Utilizada)</b></p>
+                    <p class="card-text"><b>5. <i>NRU</i> (Recientemente No Utilizada)</b></p>
 
                     <p class="card-text">Este algoritmo clasifica las páginas en cuatro categorías según sus <a href="glosario.html" target="_blank"><i>bits</i></a> de
                         referencia y modificación. Luego, reemplaza una página de la categoría más baja disponible.</p>
@@ -614,7 +614,7 @@
                         modificación como [0, 0], [1, 0], [0, 1], [1, 1] respectivamente, y se necesita cargar una nueva
                         página E, se reemplazará A, ya que está en la categoría 1.</p>
 
-                    <p class="card-text"><b>6. <a href="glosario.html" target="_blank"><i>LFU</i></a> (Frecuentemente Menos Utilizado)</b></p>
+                    <p class="card-text"><b>6. <i>LFU</i> (Frecuentemente Menos Utilizado)</b></p>
 
                     <p class="card-text">Este algoritmo reemplaza la página que ha sido usada con menos frecuencia.</p>
 
