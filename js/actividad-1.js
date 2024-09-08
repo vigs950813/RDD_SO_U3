@@ -1,4 +1,3 @@
-
 function validarRespuestas() {
     // Definir las respuestas correctas
     const respuestasCorrectas = {
@@ -14,14 +13,18 @@ function validarRespuestas() {
         q10: 'v',
     };
 
-    // Inicializar variables para contar respuestas correctas e incorrectas
-    let respuestasCorrectasCount = 0;
-    let respuestasIncorrectasCount = 0;
-
     // Iterar sobre cada pregunta
     for (let i = 1; i <= 10; i++) {
         const preguntaName = 'q' + i;
         const checkboxes = document.getElementsByName(preguntaName);
+        const preguntaRow = document.getElementById('pregunta' + i);
+
+        // Limpiar colores previos y mensajes
+        preguntaRow.style.backgroundColor = '';
+        const mensajeAnterior = preguntaRow.querySelector('.mensaje-repaso');
+        if (mensajeAnterior) {
+            mensajeAnterior.remove();
+        }
 
         // Verificar cuántos checkboxes están marcados
         const checkboxesMarcados = Array.from(checkboxes).filter(checkbox => checkbox.checked);
@@ -32,17 +35,29 @@ function validarRespuestas() {
 
             // Verificar si la respuesta es correcta
             if (valorCheckbox === respuestasCorrectas[preguntaName]) {
-                respuestasCorrectasCount++;
+                // Respuesta correcta, pintar de verde (60% opaco) y mostrar mensaje
+                preguntaRow.style.backgroundColor = 'rgba(144, 238, 144, 0.3)'; // lightgreen
+                const mensaje = document.createElement('div');
+                mensaje.classList.add('mensaje-repaso');
+                mensaje.style.color = 'green';
+                mensaje.innerText = 'Respuesta correcta';
+                preguntaRow.appendChild(mensaje);
             } else {
-                respuestasIncorrectasCount++;
+                // Respuesta incorrecta, pintar de rojo (60% opaco) y mostrar mensaje de repaso
+                preguntaRow.style.backgroundColor = 'rgba(255, 99, 71, 0.3)'; // lightcoral
+                const mensaje = document.createElement('div');
+                mensaje.classList.add('mensaje-repaso');
+                mensaje.style.color = 'red';
+                mensaje.innerText = 'Respuesta incorrecta';
+                preguntaRow.appendChild(mensaje);
             }
+        } else if (checkboxesMarcados.length === 0) {
+            // Si no se selecciona ninguna opción, pintar de azul (60% opaco)
+            preguntaRow.style.backgroundColor = 'rgba(173, 216, 230, 0.3)'; // lightblue
         } else if (checkboxesMarcados.length > 1) {
             // Mostrar mensaje de error si más de un checkbox está marcado en una fila
             alert('Error: Solo puedes seleccionar una opción por pregunta.');
             return; // Detener la validación si hay un error
         }
     }
-
-    // Mostrar resultados si no hay errores
-    alert(`Respuestas correctas: ${respuestasCorrectasCount}\nRespuestas incorrectas: ${respuestasIncorrectasCount}`);
 }
