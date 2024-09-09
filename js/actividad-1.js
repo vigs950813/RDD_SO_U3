@@ -15,16 +15,16 @@ function validarRespuestas() {
 
     // Definir los mensajes de retroalimentación
     const mensajesDeRetroalimentacion = {
-        q1: 'La gestión de memoria principal y secundaria ha evolucionado significativamente, por lo que son importantes para el sistema operativo.',
-        q2: 'La gestión de la memoria es esencial porque permite que el sistema operativo controle y optimice el uso de la memoria principal.',
-        q3: 'Permiten que los procesos usen más memoria de la que físicamente está disponible.',
-        q4: 'Una mala gestión podría provocar que el sistema se vuelva lento o inestable.',
-        q5: 'Optimizan el uso de memoria y también mejoran el rendimiento general del sistema al permitir una ejecución más eficiente de múltiples procesos.',
-        q6: 'Es una técnica clave que permite que los procesos se ejecuten de manera independiente.',
-        q7: 'El sistema operativo puede residir en diferentes partes de la memoria, según el diseño del sistema.',
-        q8: 'La gestión de la memoria es esencial para la ejecución de procesos.',
-        q9: 'Un sistema de almacenamiento eficiente no tiene las tres características mencionadas.',
-        q10: 'Los registros del procesador son rápidos, pero tienen una capacidad limitada y un costo alto.',
+        q1: 'La gestión de memoria principal y secundaria ha evolucionado significativamente, por lo que son importantes para el sistema operativo. <br>Respuesta correcta: Verdadero',
+        q2: 'La gestión de la memoria es esencial porque permite que el sistema operativo controle y optimice el uso de la memoria principal. <br>Respuesta correcta: Verdadero',
+        q3: 'Permiten que los procesos usen más memoria de la que físicamente está disponible. <br>Respuesta correcta: Falso',
+        q4: 'Una mala gestión podría provocar que el sistema se vuelva lento o inestable. <br>Respuesta correcta: Verdadero',
+        q5: 'Optimizan el uso de memoria y también mejoran el rendimiento general del sistema al permitir una ejecución más eficiente de múltiples procesos. <br>Respuesta correcta: Verdadero',
+        q6: 'Es una técnica clave que permite que los procesos se ejecuten de manera independiente. <br>Respuesta correcta: Verdadero',
+        q7: 'El sistema operativo puede residir en diferentes partes de la memoria, según el diseño del sistema. <br>Respuesta correcta: Verdadero',
+        q8: 'La gestión de la memoria es esencial para la ejecución de procesos. <br>Respuesta correcta: Verdadero',
+        q9: 'Un sistema de almacenamiento eficiente no tiene las tres características mencionadas. <br>Respuesta correcta: Falso',
+        q10: 'Los registros del procesador son rápidos, pero tienen una capacidad limitada y un costo alto. <br>Respuesta correcta: Verdadero',
     };
 
     // Iterar sobre cada pregunta
@@ -62,7 +62,7 @@ function validarRespuestas() {
                 const mensaje = document.createElement('div');
                 mensaje.classList.add('mensaje-repaso');
                 mensaje.style.color = 'red';
-                mensaje.innerText = mensajesDeRetroalimentacion[preguntaName]; // Mostrar mensaje de retroalimentación específico
+                mensaje.innerHTML = mensajesDeRetroalimentacion[preguntaName]; // Usar innerHTML para mostrar HTML correctamente
                 preguntaRow.appendChild(mensaje);
             }
         } else if (checkboxesMarcados.length === 0) {
