@@ -65,7 +65,7 @@
 
                     <p class="card-text">
                         Combina los beneficios de la segmentación y la paginación para
-                        administrar el almacenamiento de manera más eficiente y flexible. este enfoque híbrido le
+                        administrar el almacenamiento de manera más eficiente y flexible. Este enfoque híbrido le
                         permite dividir lógicamente el espacio de direcciones de un proceso en segmentos y cada segmento
                         en páginas de tamaño fijo. esto le permite mantener la lógica de su segmentación mientras
                         minimiza la fragmentación externa, un problema común con la segmentación pura.
@@ -73,27 +73,27 @@
 
                     <p class="card-text">
                         Para implementar la segmentación mediante paginación, se utilizan tanto tablas de segmentos como
-                        tablas de varias páginas. la tabla de segmentos mantiene información sobre cada segmento,
-                        incluida su base y límites, y un puntero a la tabla de páginas correspondiente. cada segmento
+                        tablas de varias páginas. La tabla de segmentos mantiene información sobre cada segmento,
+                        incluida su base y límites, y un puntero a la tabla de páginas correspondiente. Cada segmento
                         tiene su propia tabla de páginas que gestiona la traducción de direcciones dentro de ese
                         segmento.
                     </p>
 
                     <p class="card-text">
-                        La traducción de direcciones en este sistema implica varios pasos. primero, se usa el número de
+                        La traducción de direcciones en este sistema implica varios pasos. Primero, se usa el número de
                         segmento de la dirección lógica para buscar en la tabla de segmentos, obteniendo la base del
                         segmento y el puntero a su tabla de páginas. luego, el desplazamiento dentro del segmento se
-                        divide en un número de página y un desplazamiento dentro de la página. este número de página se
+                        divide en un número de página y un desplazamiento dentro de la página. Este número de página se
                         utiliza para buscar en la tabla de páginas del segmento, obteniendo el marco de página en la
                         memoria física, que se combina con el desplazamiento para obtener la dirección física final.
                     </p>
 
                     <p class="card-text">
-                        Es principales ventajas de la segmentación con paginación incluyen la reducción de la
-                        fragmentación externa y la posibilidad de una protección y compartición de memoria más granular.
+                        Las principales ventajas de la segmentación con paginación incluyen la reducción de la
+                        fragmentación externa y la posibilidad de una protección y compartición de memoria más granular,
                         sin embargo, este enfoque también introduce una mayor complejidad en la traducción de
                         direcciones y un mayor <a href="glosario.html" target="_blank"><i>overhead</i></a> (Tiempo de consumo) debido a la necesidad de mantener múltiples tablas de segmentos
-                        y páginas. esta técnica es utilizada en sistemas operativos modernos, como algunas variantes de
+                        y páginas. Esta técnica es utilizada en sistemas operativos modernos, como algunas variantes de
                         <a href="glosario.html" target="_blank"><i>UNIX</i></a> (Sistema operativo multitarea de código abierto) y <a href="glosario.html" target="_blank"><i>Windows</i></a> (Sistema operativo multitarea de la empresa Microsoft), proporcionando un equilibrio entre la gestión lógica de los recursos y la
                         eficiencia de la asignación de memoria.
                     </p>
