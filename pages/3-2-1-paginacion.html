@@ -62,11 +62,11 @@
                         página, respectivamente.
                     </p>
 
-                    <p class="card-text">La pagina corresponde con una zona de memoria contigua de un determinado
-                        tamaño. por motivos de eficiencia en la traducción, este tamaño debe ser potencia de 2.</p>
-                    <p class="card-text">El mapa de memoria de cada proceso se considera dividido en páginas. a su vez,
+                    <p class="card-text">La página corresponde con una zona de memoria contigua de un determinado
+                        tamaño. por motivos de eficiencia en la traducción, este tamaño debe ser de potencia de 2.</p>
+                    <p class="card-text">El mapa de memoria de cada proceso se considera dividido en páginas. A su vez,
                         la memoria principal del sistema se considera dividida en zonas del mismo tamaño que se
-                        denominan marcos de página. un marco de página contendrá en un determinado instante una página
+                        denominan marcos de página. Un marco de página contendrá en un determinado instante una página
                         de memoria de proceso.</p>
 
                         <!-- <p class="card-text">
@@ -101,12 +101,12 @@
                     <ol>
                         <li>
                             <p class="card-text"><b>División de la memoria</b>: La memoria virtual y la memoria física
-                                se dividen en páginas y marcos de página de igual tamaño. esto facilita la gestión y
+                                se dividen en páginas y marcos de página de igual tamaño. Esto facilita la gestión y
                                 asignación de memoria.</p>
                         </li>
                         <li>
                             <p class="card-text"><b>Asignación de páginas</b>: Cuando un programa necesita memoria, el
-                                sistema operativo asigna páginas virtuales al programa. estas páginas se mapean a marcos
+                                sistema operativo asigna páginas virtuales al programa. Estas páginas se mapean a marcos
                                 de página en la memoria física.</p>
                         </li>
                         <li>
@@ -117,7 +117,7 @@
                         <li>
                             <p class="card-text"><b>Fallas de página</b>: Si el programa intenta acceder a una página
                                 que no está en la memoria física (porque ha sido paginada a disco), se produce una falla
-                                de página. el sistema operativo debe entonces cargar la página requerida desde el disco
+                                de página. El sistema operativo debe entonces cargar la página requerida desde el disco
                                 a un marco de página en la memoria física.</p>
                         </li>
                     </ol>
@@ -158,7 +158,7 @@
                     </ol>
                     <p class="card-text">Un aspecto importante en el rendimiento de un sistema de paginación es el
                         tamaño de la página. evidentemente, su tamaño debe ser potencia de 2 y, dado que va a servir de
-                        base memoria virtual, múltiplo del tamaño del bloque de disco. el tamaño típico puede estar
+                        base memoria virtual, múltiplo del tamaño del bloque de disco. El tamaño típico puede estar
                         entre 2 <a href="glosario.html" target="_blank"><i>KiloBytes</i></a> y 16 <a href="glosario.html" target="_blank"><i>KiloBytes</i></a>.</p>
 
                 <ul class="pagination justify-content-end">
